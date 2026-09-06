@@ -493,7 +493,7 @@
   {
    "nom": "Bon Clay Bentham",
    "epithete": "Bentham des Terres Sauvages",
-   "genre": "Autre",
+   "genre": "Homme",
    "equipage": "Baroque Works",
    "origine": "East Blue",
    "fruit": "Paramécia",
@@ -1108,7 +1108,7 @@
   {
    "nom": "Emporio Ivankov",
    "epithete": "Le Roi des Okama",
-   "genre": "Autre",
+   "genre": "Homme",
    "equipage": "Armée Révolutionnaire",
    "origine": "Grand Line",
    "fruit": "Paramécia",
@@ -1446,7 +1446,7 @@
   {
    "nom": "Inazuma",
    "epithete": "",
-   "genre": "Autre",
+   "genre": "Homme",
    "equipage": "Armée Révolutionnaire",
    "origine": "South Blue",
    "fruit": "Paramécia",
@@ -1742,7 +1742,7 @@
   {
    "nom": "Kikunojo",
    "epithete": "Kikunojo des Neiges Printanières",
-   "genre": "Autre",
+   "genre": "Femme",
    "equipage": "Clan Kozuki",
    "origine": "Grand Line",
    "fruit": "Aucun",
@@ -2193,7 +2193,7 @@
   {
    "nom": "Morley",
    "epithete": "Morley la Poilue",
-   "genre": "Autre",
+   "genre": "Homme",
    "equipage": "Armée Révolutionnaire",
    "origine": "Inconnu",
    "fruit": "Paramécia",
