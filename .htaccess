@@ -1,0 +1,44 @@
+# Bureau des Primes — configuration Apache (hébergement mutualisé).
+# Un serveur nginx ignore ce fichier : voir README.md.
+
+ErrorDocument 404 /404.html
+
+# Pas de listing de répertoire : assets/img/photos/ n'a pas à être
+# parcourable.
+Options -Indexes
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  # Le jeu ne s'affiche dans aucune iframe.
+  Header always set X-Frame-Options "SAMEORIGIN"
+</IfModule>
+
+<IfModule mod_mime.c>
+  AddType application/manifest+json .webmanifest
+  AddType image/svg+xml .svg
+</IfModule>
+
+# Le registre et le code changent à chaque mise en ligne : cache court.
+# Les portraits, eux, ne bougent jamais.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg    "access plus 1 year"
+  ExpiresByType image/png     "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType text/css      "access plus 1 hour"
+  ExpiresByType application/javascript "access plus 1 hour"
+  ExpiresByType application/json       "access plus 10 minutes"
+</IfModule>
+
+# Fichiers de travail qui n'ont rien à faire en ligne, au cas où ils
+# seraient envoyés par erreur.
+<FilesMatch "^(README\.md|.*\.cmd|.*\.py|.*\.sql)$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>

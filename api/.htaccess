@@ -1,0 +1,16 @@
+# Bureau des Primes — seuls les points d'entrée sont publics.
+#
+# Tout ce qui commence par « _ » est une brique interne, et config.php
+# contient le mot de passe de la base et le secret Discord. Sans cette
+# règle, une adresse comme /api/config.php les servirait en clair le
+# jour où PHP tombe en panne sur le serveur.
+
+<FilesMatch "^(_.*\.php|config\.php|config\.exemple\.php|schema\.sql)$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>

@@ -1,0 +1,1194 @@
+/* ==================================================================
+   Bureau des Primes — feuille de style unique
+   1. Socle          2. Jetons de thème (clair / sombre / forcé)
+   3. Page           4. Composants        5. Adaptatif
+   Le thème suit le système ; [data-theme] sur <html> force un camp.
+   ================================================================== */
+
+/* --- 1. Socle ---------------------------------------------------- */
+*, *::before, *::after{ box-sizing:border-box }
+html, body{ margin:0 }
+img{ max-width:100% }
+[hidden]{ display:none !important }
+:where(button, input){ font:inherit; color:inherit }
+
+/* Une page sans JavaScript ne joue pas : on le dit franchement. */
+.noscript{
+  display:block; margin:0 0 18px; padding:12px 16px;
+  border:1px solid var(--stamp); border-left-width:4px;
+  background:var(--stamp-soft); color:var(--ink);
+  font-family:var(--f-body); font-size:14px; line-height:1.5;
+}
+
+/* --- 2. Jetons de thème ------------------------------------------ */
+:root{
+  --bg:#DFD9CA; --grain:rgba(29,40,48,.045); --glow:rgba(255,252,242,.85);
+  --surface:#F2EEE4; --surface-2:#DAD3C2; --sunk:#CFC8B6;
+  --ink:#19232B; --ink-2:#4C5960; --ink-3:#7C8482;
+  --line:#BDB3A0; --rule:#19232B;
+  --stamp:#A93326; --stamp-soft:rgba(169,51,38,.14);
+  --stamp-fill:rgba(169,51,38,.18); --brass:#8E6416;
+  --ok:#2C6748; --ok-bg:#C9DDCD; --ok-ink:#183B29;
+  --warn:#A0700F; --warn-bg:#EBD8AE; --warn-ink:#463006;
+  --miss:#B4453A; --miss-bg:#EDC9C2; --miss-ink:#5E1E15;
+  --paper:#EADEC0; --paper-ink:#221D14; --paper-rule:#221D14; --paper-fade:rgba(34,29,20,.62);
+  --shadow:0 1px 0 rgba(25,35,43,.14), 0 14px 30px -20px rgba(25,35,43,.55);
+  --lift:0 2px 0 rgba(25,35,43,.1);
+  --f-display:"Alfa Slab One", Rockwell, Georgia, serif;
+  --f-label:"Oswald", "Arial Narrow", Helvetica, sans-serif;
+  --f-body:"IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, "Cascadia Mono", monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0D141A; --grain:rgba(233,226,210,.035); --glow:rgba(96,130,150,.16);
+    --surface:#16212A; --surface-2:#1E2C36; --sunk:#111A21;
+    --ink:#EAE3D3; --ink-2:#9FADB5; --ink-3:#76838B;
+    --line:#2B3A45; --rule:#3E525F;
+    --stamp:#E4614C; --stamp-soft:rgba(228,97,76,.16);
+    --stamp-fill:rgba(228,97,76,.28); --brass:#D6A548;
+    --ok:#4F9B73; --ok-bg:#1B3C2C; --ok-ink:#AEE1C3;
+    --warn:#D09C33; --warn-bg:#3D2F10; --warn-ink:#F3D593;
+    --miss:#C4584A; --miss-bg:#3B1A15; --miss-ink:#EFB4A7;
+    --paper:#D9CAA6; --paper-ink:#201B12; --paper-rule:#201B12; --paper-fade:rgba(32,27,18,.62);
+    --shadow:0 1px 0 rgba(0,0,0,.55), 0 18px 34px -22px rgba(0,0,0,.95);
+    --lift:0 2px 0 rgba(0,0,0,.4);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0D141A; --grain:rgba(233,226,210,.035); --glow:rgba(96,130,150,.16);
+  --surface:#16212A; --surface-2:#1E2C36; --sunk:#111A21;
+  --ink:#EAE3D3; --ink-2:#9FADB5; --ink-3:#76838B;
+  --line:#2B3A45; --rule:#3E525F;
+  --stamp:#E4614C; --stamp-soft:rgba(228,97,76,.16);
+  --stamp-fill:rgba(228,97,76,.28); --brass:#D6A548;
+  --ok:#4F9B73; --ok-bg:#1B3C2C; --ok-ink:#AEE1C3;
+  --warn:#D09C33; --warn-bg:#3D2F10; --warn-ink:#F3D593;
+  --miss:#C4584A; --miss-bg:#3B1A15; --miss-ink:#EFB4A7;
+  --paper:#D9CAA6; --paper-ink:#201B12; --paper-rule:#201B12; --paper-fade:rgba(32,27,18,.62);
+  --shadow:0 1px 0 rgba(0,0,0,.55), 0 18px 34px -22px rgba(0,0,0,.95);
+  --lift:0 2px 0 rgba(0,0,0,.4);
+}
+/* --- 3. Page ------------------------------------------------------ */
+body{
+  background-color:var(--bg); color:var(--ink);
+  font-family:var(--f-body); font-size:15px; line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  background-image:
+    repeating-linear-gradient(0deg, transparent 0 3px, var(--grain) 3px 4px),
+    radial-gradient(130% 70% at 50% -8%, var(--glow) 0%, transparent 62%);
+  background-attachment:fixed;
+}
+.wrap{max-width:1120px; margin:0 auto; padding:0 20px 80px}
+button{font:inherit; color:inherit; cursor:pointer}
+:focus-visible{outline:2px solid var(--stamp); outline-offset:2px}
+.k{
+  font-family:var(--f-label); font-weight:400; font-size:10px; letter-spacing:.19em;
+  text-transform:uppercase; color:var(--ink-3);
+}
+
+/* ---------- masthead ---------- */
+/* --- 4. Composants ------------------------------------------------ */
+.masthead{padding:30px 0 0}
+.mh-top{
+  display:flex; align-items:center; gap:14px;
+  font-family:var(--f-label); font-weight:500; font-size:10.5px;
+  letter-spacing:.24em; text-transform:uppercase; color:var(--stamp);
+}
+.mh-top::after{content:""; flex:1 1 auto; height:1px; background:var(--rule); opacity:.45}
+.mh-main{display:flex; align-items:center; gap:26px; padding:10px 0 14px}
+.wordmark{
+  font-family:var(--f-display); font-weight:400; margin:0;
+  font-size:clamp(34px,7.4vw,62px); line-height:.92; letter-spacing:-.015em;
+  text-wrap:balance; flex:1 1 auto;
+}
+.wordmark em{font-style:normal; color:var(--stamp)}
+.seal{
+  flex:none; width:98px; height:98px; color:var(--stamp); opacity:.92;
+  transform:rotate(-7deg);
+}
+.seal svg{width:100%; height:100%; display:block}
+.dateline{
+  display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 24px;
+  padding:9px 0 10px; border-top:1px solid var(--rule); border-bottom:3px double var(--rule);
+  font-family:var(--f-label); font-size:11px; letter-spacing:.15em; text-transform:uppercase;
+  color:var(--ink-2);
+}
+.dateline b{
+  font-weight:600; color:var(--ink); font-variant-numeric:tabular-nums; letter-spacing:.1em;
+}
+.dateline .sep{flex:1 1 auto}
+.tagline{margin:14px 0 0; font-size:14px; color:var(--ink-2); max-width:60ch}
+
+/* Le choix de thème vit dans le bandeau d'état, à la même échelle de
+   caractères que le reste de la ligne. Masqué tant que theme.js n'a pas
+   pris la main : sans JavaScript, trois boutons inertes ne servent à
+   rien, et la page suit alors le réglage du système. */
+.theme{display:inline-flex; align-items:center; gap:6px}
+.theme-lbl{color:var(--ink-3); margin-right:2px}
+.theme-btn{
+  font-family:var(--f-label); font-size:10px; font-weight:500;
+  letter-spacing:.14em; text-transform:uppercase;
+  padding:3px 9px; border:1px solid var(--line); border-radius:6px;
+  background:transparent; color:var(--ink-3); cursor:pointer;
+  transition:border-color .15s, color .15s, background .15s;
+}
+.theme-btn:hover{border-color:var(--ink-3); color:var(--ink)}
+.theme-btn[aria-pressed="true"]{
+  border-color:var(--stamp); background:var(--stamp-soft); color:var(--ink);
+}
+
+/* ---------- mode tabs ---------- */
+.modebar{display:flex; flex-wrap:wrap; gap:7px; align-items:center; padding:20px 0 2px}
+/* Les onglets forment leur propre groupe : c'est lui qui porte le role
+   de liste d'onglets, pas la barre, qui contient aussi la bascule
+   Entrainement, le lien vers le lexique et — en etroit — le menu. */
+.onglets{display:flex; flex-wrap:wrap; gap:7px; align-items:center}
+/* Au large, le menu de modes n'existe pas a l'ecran. Le second selecteur
+   vise le <select> resté nu : sans JavaScript il reste cache ici et
+   reparait plus bas, ou il sert de repli aux onglets masques. */
+.modebar .menu, .modebar > select.barre-menu{display:none}
+.tab{
+  font-family:var(--f-label); font-weight:500; font-size:12.5px; letter-spacing:.11em;
+  text-transform:uppercase; padding:8px 15px; border:1.5px solid var(--line);
+  background:transparent; color:var(--ink-2);
+  /* Huit pixels comme le menu qui les remplace en etroit : les deux
+     commandes disent la meme chose, elles doivent se ressembler. */
+  border-radius:8px;
+  display:inline-flex; align-items:center; gap:9px;
+  transition:border-color .15s, color .15s, background .15s;
+}
+.tab::before{content:""; width:6px; height:6px; background:var(--line); transition:background .15s}
+.tab:hover{border-color:var(--ink-3); color:var(--ink)}
+.tab[aria-selected="true"]{
+  border-color:var(--stamp); color:var(--ink); background:var(--stamp-soft); box-shadow:var(--lift);
+}
+.tab[aria-selected="true"]::before{background:var(--stamp)}
+/* Bascule Entrainement. Meme gabarit que les onglets de mode, pour se
+   lire comme un controle de la meme barre, mais avec une case cochee :
+   il ne choisit pas un mode, il change de regime de jeu. */
+.practice{
+  margin-left:auto; display:inline-flex; align-items:center; gap:10px;
+  padding:8px 15px; border:1.5px solid var(--line); border-radius:8px;
+  font-family:var(--f-label); font-weight:500; font-size:12.5px;
+  letter-spacing:.11em; text-transform:uppercase; color:var(--ink-2);
+  cursor:pointer; -webkit-user-select:none; user-select:none;
+  transition:border-color .15s, color .15s, background .15s;
+}
+.practice:hover{border-color:var(--ink-3); color:var(--ink)}
+
+/* La case native est un carre blanc dessine par le systeme : illisible
+   sur ce fond, et impossible a styler de maniere fiable. On la garde pour le
+   clavier et les lecteurs d'ecran, mais on la sort de l'affichage. */
+.practice input{position:absolute; opacity:0; width:0; height:0; margin:0}
+.practice .case{
+  position:relative; flex:none; width:13px; height:13px; border-radius:1px;
+  border:1.5px solid var(--line); background:var(--sunk);
+  transition:border-color .15s;
+}
+/* La coche, dessinee en CSS : deux traits d'encre a l'equerre. */
+.practice .case::after{
+  content:""; position:absolute; inset:-1px 0 0 0; margin:auto;
+  width:4px; height:8px; border:solid var(--stamp); border-width:0 2px 2px 0;
+  transform:rotate(42deg); opacity:0; transition:opacity .12s;
+}
+.practice[data-actif]{
+  border-color:var(--stamp); color:var(--ink);
+  background:var(--stamp-soft); box-shadow:var(--lift);
+}
+.practice[data-actif] .case{border-color:var(--stamp)}
+.practice[data-actif] .case::after{opacity:1}
+.practice input:focus-visible + .case{outline:2px solid var(--stamp); outline-offset:3px}
+
+/* ---------- brief ---------- */
+.brief{
+  margin-top:16px; border:1.5px solid var(--line); background:var(--surface);
+  border-radius:2px; padding:24px 26px; box-shadow:var(--shadow);
+  display:flex; flex-wrap:wrap; gap:22px 32px; align-items:center;
+}
+.brief-body{flex:1 1 320px; min-width:0}
+.brief-body .k{display:block; margin-bottom:7px}
+.brief h2{
+  margin:0; font-family:var(--f-display); font-weight:400;
+  font-size:clamp(21px,3.5vw,30px); line-height:1.14; text-wrap:balance;
+}
+.brief p{margin:9px 0 0; font-size:13.5px; color:var(--ink-2); max-width:60ch}
+.clue{
+  position:relative; flex:0 1 auto; max-width:100%;
+  background:var(--paper); color:var(--paper-ink);
+  border:2px solid var(--paper-rule); border-radius:1px; padding:18px 26px 16px;
+  text-align:center; box-shadow:var(--shadow); transform:rotate(-1.1deg);
+  background-image:repeating-linear-gradient(45deg, rgba(34,29,20,.028) 0 2px, transparent 2px 5px);
+}
+.clue::before{
+  content:""; position:absolute; top:-9px; left:50%; width:74px; height:18px;
+  transform:translateX(-50%) rotate(1.6deg);
+  background:var(--stamp); opacity:.24; border-radius:1px;
+}
+.clue .k{color:var(--paper-fade); display:block; margin-bottom:5px}
+.clue .val{
+  font-family:var(--f-display); font-weight:400; line-height:1.08;
+  font-size:clamp(22px,4.4vw,34px); letter-spacing:-.01em; overflow-wrap:anywhere;
+}
+.clue .val.mono{font-family:var(--f-mono); font-weight:600; font-variant-numeric:tabular-nums}
+
+/* ---------- guess bar ---------- */
+.guessbar{position:relative; margin-top:14px; display:flex; gap:8px}
+.guessbar input{
+  flex:1 1 auto; min-width:0; font-family:var(--f-body); font-size:16px;
+  padding:14px 16px; background:var(--surface); color:var(--ink);
+  /* La barre de proposition suit ses voisines, et surtout la liste
+     d autocompletion qui s ouvre juste dessous : un champ carre sous
+     un panneau arrondi, c etait la derniere discordance de la page. */
+  border:1.5px solid var(--line); border-radius:8px;
+  transition:border-color .15s, box-shadow .15s;
+}
+.guessbar input::placeholder{color:var(--ink-3)}
+.guessbar input:focus{border-color:var(--stamp); outline:none; box-shadow:0 0 0 3px var(--stamp-soft)}
+.guessbar input:disabled{opacity:.55}
+.guessbar button{
+  font-family:var(--f-label); font-weight:600; font-size:12.5px; letter-spacing:.15em;
+  text-transform:uppercase; padding:0 24px; background:var(--stamp); color:#F7F0E3;
+  border:1.5px solid var(--stamp); border-radius:8px; box-shadow:var(--lift);
+}
+.guessbar button:hover:not(:disabled){filter:brightness(1.1)}
+.guessbar button:disabled{opacity:.35; cursor:not-allowed; box-shadow:none}
+/* ------------------------------------------------------------------
+   Les listes flottantes du site
+
+   Il y en a deux : l'autocompletion du champ de proposition et les menus
+   du lexique. Elles etaient cousines sans etre identiques — bordure a
+   l'encre d'un cote, au trait de l'autre ; survol beige ici, gris la ;
+   coins a un pixel contre deux. Elles partagent maintenant une seule
+   regle, le seul moyen sur de les empecher de diverger a la prochaine
+   retouche.
+
+   Les barres de modes et de registres restent des onglets : elles
+   tiennent sur une ligne et se lisent d'un coup d'oeil, un menu les
+   cacherait derriere un clic.
+   ------------------------------------------------------------------ */
+.ac, .menu-liste{
+  position:absolute; margin:0; padding:4px;
+  background:var(--surface); color:var(--ink);
+  border:1.5px solid var(--line);
+  /* Huit pixels, contre deux partout ailleurs sur le site : une liste
+     qui flotte au-dessus de la page n'est pas une case du dossier, elle
+     se detache, et l'angle arrondi le dit. Les deux listes gardent la
+     meme valeur — c'est la meme regle, elles ne peuvent pas diverger. */
+  border-radius:8px;
+  box-shadow:var(--shadow);
+  overflow:auto; overscroll-behavior:contain;
+  scrollbar-width:thin; scrollbar-color:var(--line) var(--surface);
+}
+.ac li, .menu-liste li{
+  position:relative; list-style:none; cursor:pointer;
+  /* Six pixels : la rangee se pose dans le panneau sans que ses coins
+     ne debordent des huit du cadre. */
+  padding:8px 11px; border-radius:6px;
+  font-family:var(--f-body); font-size:13px; line-height:1.3;
+}
+.ac li:hover, .menu-liste li:hover{background:var(--sunk)}
+/* Le curseur — au clavier comme a la souris — se marque partout de la
+   meme facon : un lisere a l'encre rouge et un fond a peine teinte. Un
+   simple changement de fond ne se voyait pas assez au clavier. */
+.ac li[aria-selected="true"], .menu-liste li.survol{background:var(--stamp-soft)}
+.ac li[aria-selected="true"]::before, .menu-liste li.survol::before{
+  /* Le lisere se cale a l'interieur du coin arrondi : colle au bord, il
+     depassait du fond de la rangee. */
+  content:""; position:absolute; left:2px; top:3px; bottom:3px;
+  width:3px; background:var(--stamp); border-radius:2px;
+}
+
+/* Propre a l'autocompletion : elle occupe toute la largeur du champ, et
+   chaque rangee porte un portrait puis une mention poussee a droite. */
+.ac{z-index:30; top:calc(100% + 6px); left:0; right:0; max-height:300px}
+.ac[hidden]{display:none}
+.ac li{display:flex; align-items:center; gap:11px}
+.ac .nm{font-weight:500}
+.ac .sub{
+  font-family:var(--f-label); font-size:11px; letter-spacing:.09em; text-transform:uppercase;
+  color:var(--ink-3); margin-left:auto; text-align:right;
+}
+
+/* ---------- empty state ---------- */
+.empty{
+  margin-top:24px; border:1.5px dashed var(--line); border-radius:2px;
+  padding:26px 24px; text-align:center; background:var(--sunk);
+}
+.empty h3{
+  margin:0 0 6px; font-family:var(--f-label); font-weight:500; font-size:13px;
+  letter-spacing:.2em; text-transform:uppercase; color:var(--ink-2);
+}
+.empty p{margin:0 auto; font-size:13px; color:var(--ink-3); max-width:52ch}
+.attrs{display:flex; flex-wrap:wrap; gap:6px; justify-content:center; margin-top:16px}
+.attrs span{
+  font-family:var(--f-label); font-size:10px; letter-spacing:.15em; text-transform:uppercase;
+  color:var(--ink-3); border:1px solid var(--line); border-radius:1px; padding:4px 9px;
+}
+
+/* ---------- le plateau : une fiche = une carte ---------- */
+/* Huit attributs ne tenaient pas en largeur : le tableau imposait un
+   defilement horizontal sur telephone, et une ligne d'en-tete loin des
+   valeurs sur grand ecran. Chaque proposition est maintenant une carte
+   dont les attributs portent leur propre intitule.
+
+   La grille garde le meme ordre d'une carte a l'autre : « Prime » tombe
+   toujours a la meme place, on peut donc encore comparer une colonne
+   d'un coup d'oeil en descendant la page. */
+.fiches{margin-top:24px; display:grid; grid-template-columns:1fr; gap:10px}
+
+.fiche{
+  border:1.5px solid var(--line); border-radius:2px;
+  background:var(--surface-2); padding:10px;
+  box-shadow:var(--lift);
+}
+.fiche-tete{
+  display:flex; align-items:center; gap:12px;
+  background:var(--surface); border:1.5px solid var(--line); border-radius:2px;
+  padding:8px 10px; margin-bottom:6px;
+}
+.fiche-tete .nm{
+  flex:1 1 auto; min-width:0;
+  font-family:var(--f-label); font-weight:500; font-size:15px; letter-spacing:.02em;
+}
+.fiche-tete .no{
+  flex:none; font-family:var(--f-mono); font-size:11px; color:var(--ink-2);
+  font-variant-numeric:tabular-nums;
+  background:var(--sunk); border:1px solid var(--line); border-radius:2px;
+  padding:2px 7px;
+}
+
+.fiche-attrs{
+  margin:0; display:grid; gap:6px;
+  grid-template-columns:repeat(4, minmax(0, 1fr));
+}
+/* Deux fiches de front des que la largeur le permet : le dossier tient
+   sur moitie moins de hauteur. Six fiches passent de ~1260 px a 682 px.
+   La page cesse de s'elargir au-dela de 1120 px (.wrap est plafonne),
+   donc une carte fait toujours ~535 px et un attribut ~116 px : les
+   equipages longs passent a la ligne, ce qui reste plus lisible que de
+   repasser a deux colonnes, qui rallongerait chaque carte de 100 px. */
+/* Une fiche par ligne, la plus recente en haut. Deux de front tenaient
+   sur moitie moins de hauteur, mais la lecture sautait de droite a gauche
+   — on lisait 02 puis 01 sur la meme ligne — et deux cartes voisines
+   n'avaient pas la meme hauteur des qu'une liste etait vide, si bien que
+   leurs attributs ne se faisaient plus face. En colonne, l'ordre est celui
+   du depouillement et chaque attribut tombe exactement sous le meme. */
+.att{
+  position:relative; min-height:56px; padding:7px 10px;
+  border:1.5px solid var(--miss); border-radius:2px;
+  background:var(--miss-bg); color:var(--miss-ink);
+  display:flex; flex-direction:column; gap:2px; overflow:hidden;
+  overflow-wrap:break-word; hyphens:none;
+  animation:drop .36s cubic-bezier(.2,.85,.3,1) backwards;
+  animation-delay:calc(var(--i) * 52ms);
+}
+.att.ok{background:var(--ok-bg); color:var(--ok-ink); border-color:var(--ok)}
+.att.part{background:var(--warn-bg); color:var(--warn-ink); border-color:var(--warn)}
+.att dt{
+  font-family:var(--f-label); font-weight:500; font-size:9.5px;
+  letter-spacing:.15em; text-transform:uppercase; opacity:.72;
+}
+.att dd{margin:0; font-size:13px; line-height:1.25}
+.att .num{
+  font-family:var(--f-mono); font-weight:500; font-variant-numeric:tabular-nums;
+  font-size:12.5px; white-space:nowrap;
+}
+/* La fleche dit de quel cote se trouve la vraie valeur ; elle se range
+   dans le coin pour ne pas couper la lecture. */
+.att .arrow{position:absolute; right:8px; bottom:5px; font-size:13px; opacity:.9}
+
+.mug{
+  flex:none; position:relative; display:grid; place-items:center; overflow:hidden;
+  width:36px; height:36px; border-radius:2px;
+  background:var(--paper); border:1px solid var(--paper-rule);
+}
+.mug::before{content:""; position:absolute; inset:0; background:var(--mugc); opacity:.15}
+.mug img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block}
+.mug .sil{position:absolute; bottom:0; width:78%; height:78%; fill:var(--mugc); opacity:.32}
+.mug .ini{
+  position:relative; font-family:var(--f-label); font-weight:600; font-size:12px;
+  letter-spacing:.02em; color:var(--mugc);
+}
+.mug.sm{width:30px; height:30px}
+.mug.sm .ini{font-size:11px}
+.mug.md{width:44px; height:44px}
+.mug.md .ini{font-size:16px}
+.mug.lg{
+  width:134px; height:134px; border-width:2px; margin:2px auto 16px;
+  box-shadow:inset 0 0 0 2px var(--paper), inset 0 0 0 3px var(--paper-rule);
+}
+.mug.lg .ini{font-size:46px; letter-spacing:.03em}
+.mug.lg .sil{width:74%; height:74%; opacity:.28}
+/* Une liste de valeurs — haki, natures de chakra, types — s'écrit en
+   toutes lettres, dans une cellule d'une colonne comme tous les autres
+   attributs. Les pastilles passent a la ligne quand elles sont trop
+   nombreuses.
+
+   Le moteur elargissait la cellule pour tenir sur une seule ligne, une
+   colonne de plus par debordement. Le compte disait le contraire : sur
+   les 760 fiches du site, huit seulement dépassent (Naruto et ses dix
+   natures ; le haki plafonne a trois, les types Pokemon a deux, les
+   techniques Inazuma a cinq). Ces huit-la decalaient trois attributs sur
+   huit d'une colonne et rejetaient « 1re apparition » seule sur une
+   troisieme rangee — ce que la fiche par rangee servait justement a
+   eviter : chaque attribut sous le meme. Deux lignes de pastilles pour
+   huit fiches coutent moins qu'une grille qui bouge. */
+.hakichips{display:flex; gap:4px; flex-wrap:wrap; align-items:center}
+/* Le glyphe au-dessus, le nom en dessous : c'est la disposition du
+   tableau des natures de chakra, et elle rend la pastille bien plus
+   etroite qu'en ligne — trente pixels, donc sept par colonne. */
+.hakichips i{
+  --l:34%;                       /* clarté du texte, redéfinie en thème sombre */
+  display:inline-flex; flex-direction:column; align-items:center; gap:1px;
+  font-style:normal; font-family:var(--f-label); font-weight:500;
+  font-size:9.5px; letter-spacing:.03em; white-space:nowrap; line-height:1.15;
+  border-radius:2px; padding:3px 6px;
+  color:hsl(var(--h) var(--s, 58%) var(--l));
+  border:1px solid hsl(var(--h) var(--s, 45%) var(--l) / .5);
+  background:hsl(var(--h) var(--s, 58%) var(--l) / .12);
+}
+/* L'icône : un SVG pour le haki, un kanji pour les natures de chakra.
+   Les deux occupent la même boîte, le reste de la pastille ne bouge pas. */
+/* L'icone officielle faisait quatorze pixels dans une cellule qui en
+   fait deux cent quarante : on ne distinguait ni le type ni la nature.
+   A vingt-deux elle se lit, et la rangee s'agrandit d'elle-meme pour
+   l'accueillir — la grille prend la hauteur de sa plus haute cellule. */
+.hakichips .ico{
+  flex:none; display:inline-flex; align-items:center; justify-content:center;
+  width:22px; height:22px; line-height:1;
+  font-family:"Yu Gothic", "Hiragino Sans", "Noto Sans JP", "MS Gothic", sans-serif;
+  font-size:19px; letter-spacing:0;
+}
+/* « 陰陽 » fait deux caractères : on le laisse déborder de la boîte plutôt
+   que de le comprimer, la pastille est centrée de toute façon. */
+.hakichips .ico{overflow:visible}
+.hakichips .ico{position:relative}
+.hakichips .ico svg{width:100%; height:100%; display:block}
+/* L'icone officielle se pose par-dessus le glyphe de repli ; si le
+   fichier manque, le moteur retire l'image et le glyphe reparait. */
+.hakichips .ico img{
+  position:absolute; inset:0; width:100%; height:100%; object-fit:contain;
+}
+
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .hakichips i{ --l:70% }
+}
+:root[data-theme="dark"] .hakichips i{ --l:70% }
+@keyframes drop{from{opacity:0; transform:translateY(-10px) scale(.94)}}
+
+/* ---------- hint modes ---------- */
+.hints{margin-top:24px; display:grid; gap:5px}
+.hintrow{
+  display:flex; align-items:center; gap:16px; padding:13px 16px;
+  border:1.5px solid var(--line); border-radius:2px; background:var(--surface);
+  animation:drop .32s cubic-bezier(.2,.85,.3,1) backwards;
+}
+.hintrow.wrong{background:var(--miss-bg); border-color:var(--miss); color:var(--miss-ink)}
+.hintrow .idx{font-family:var(--f-mono); font-size:11px; color:var(--ink-3); width:24px; flex:none}
+.hintrow .who{
+  font-family:var(--f-label); font-weight:500; letter-spacing:.03em; font-size:14.5px;
+  flex:1 1 auto; min-width:0;
+}
+.hintrow{align-items:center}
+.hintrow .hint{
+  display:flex; align-items:baseline; gap:12px; min-width:0; margin-left:auto;
+}
+.hintrow .lbl{
+  font-family:var(--f-label); font-size:10px; letter-spacing:.17em; text-transform:uppercase;
+  color:var(--brass); flex:none;
+}
+.hintrow .v{font-weight:500; font-size:13.5px; min-width:0; text-align:right; overflow-wrap:break-word}
+/* « Indice 2 » avant l'attribut : la valeur decrit le recherche, pas le
+   personnage propose sur la meme ligne, et rien ne le disait. */
+.hintrow .tag{
+  flex:none; font-family:var(--f-mono); font-size:10px; letter-spacing:.06em;
+  color:var(--ink-3); border:1px solid var(--line); border-radius:2px;
+  padding:2px 6px; background:var(--sunk);
+}
+.hintrow.reveal{border-color:var(--ok); background:var(--ok-bg); color:var(--ok-ink)}
+.hintrow.reveal .lbl{color:var(--ok)}
+
+/* Les indices d'affilee, sans les portraits : empiles entre les lignes et
+   du plus recent au plus ancien, on ne voit plus ce qu'ils disent
+   ensemble. Meme depliant que l'historique du compte. */
+details.recap{margin-top:12px; border-top:1px solid var(--line); padding-top:13px}
+details.recap summary{
+  font-family:var(--f-label); font-size:11.5px; letter-spacing:.17em;
+  text-transform:uppercase; color:var(--ink-2); cursor:pointer; list-style:none;
+}
+details.recap summary::-webkit-details-marker{display:none}
+details.recap summary::before{content:"+ "; color:var(--stamp)}
+details.recap[open] summary::before{content:"\2013 "}
+details.recap summary:hover{color:var(--ink)}
+.recap-liste{list-style:none; margin:12px 0 0; padding:0}
+.recap-liste li{
+  display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 14px;
+  padding:8px 0; border-bottom:1px solid var(--line);
+}
+.recap-liste li:last-child{border-bottom:0}
+.recap-liste .n{
+  font-family:var(--f-mono); font-size:11px; color:var(--ink-3);
+  font-variant-numeric:tabular-nums; min-width:62px;
+}
+.recap-liste .lbl{
+  font-family:var(--f-label); font-size:10px; letter-spacing:.17em;
+  text-transform:uppercase; color:var(--brass); min-width:108px;
+}
+.recap-liste .v{font-weight:500; font-size:13.5px; overflow-wrap:break-word}
+
+/* ---------- wanted poster ---------- */
+.poster{
+  position:relative; margin-top:28px; background:var(--paper); color:var(--paper-ink);
+  border:3px solid var(--paper-rule); border-radius:1px; padding:9px;
+  box-shadow:var(--shadow); overflow:hidden;
+  background-image:repeating-linear-gradient(45deg, rgba(34,29,20,.03) 0 2px, transparent 2px 6px);
+  animation:drop .5s cubic-bezier(.2,.85,.3,1) backwards;
+}
+.poster-in{border:1px solid var(--paper-rule); padding:34px 26px 24px; position:relative}
+.poster h3{
+  margin:0; font-family:var(--f-display); font-weight:400; line-height:.88;
+  font-size:clamp(38px,9vw,70px); letter-spacing:.03em; text-align:center;
+}
+.poster .doa{
+  font-family:var(--f-label); font-weight:500; font-size:11.5px; letter-spacing:.44em;
+  text-transform:uppercase; text-align:center; margin:8px 0 18px; padding-bottom:16px;
+  border-bottom:2px solid var(--paper-rule); color:var(--paper-fade);
+}
+.poster .who{
+  font-family:var(--f-label); font-weight:600; font-size:clamp(23px,4.8vw,34px);
+  letter-spacing:.02em; text-align:center; text-transform:uppercase; line-height:1.08;
+}
+.poster .ep{text-align:center; font-style:italic; font-size:14px; color:var(--paper-fade); margin-top:3px}
+.poster .bounty{
+  text-align:center; font-family:var(--f-mono); font-weight:600;
+  font-size:clamp(25px,5.6vw,40px); font-variant-numeric:tabular-nums;
+  margin:14px 0 5px; letter-spacing:-.015em;
+}
+.poster .bounty.none{
+  font-family:var(--f-label); font-weight:500; font-size:clamp(15px,3vw,20px);
+  letter-spacing:.22em; text-transform:uppercase; color:var(--paper-fade);
+}
+.poster .fine{
+  font-family:var(--f-label); font-size:10px; letter-spacing:.3em; text-transform:uppercase;
+  text-align:center; color:var(--paper-fade);
+}
+.captured{
+  position:absolute; top:12px; right:12px; transform:rotate(-11deg);
+  border:3px solid var(--stamp); color:var(--stamp); border-radius:3px;
+  padding:5px 14px; font-family:var(--f-label); font-weight:700; font-size:19px;
+  letter-spacing:.18em; text-transform:uppercase; opacity:.72;
+  animation:stamp .45s cubic-bezier(.3,1.5,.5,1) .3s backwards;
+}
+@keyframes stamp{from{opacity:0; transform:rotate(-13deg) scale(2.4)}}
+.dossier{
+  margin-top:22px; padding-top:18px; border-top:2px solid var(--paper-rule);
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:16px 22px;
+}
+.dossier div{display:flex; flex-direction:column; gap:2px; min-width:0}
+.dossier .k{color:var(--paper-fade); letter-spacing:.17em}
+.dossier .v{font-size:14px; font-weight:500; overflow-wrap:anywhere}
+.verdict-actions{display:flex; flex-wrap:wrap; gap:10px; margin-top:22px; justify-content:center}
+.act{
+  font-family:var(--f-label); font-weight:500; font-size:12px; letter-spacing:.15em;
+  text-transform:uppercase; padding:11px 20px; border-radius:2px;
+  border:1.5px solid var(--paper-rule); background:transparent; color:var(--paper-ink);
+  transition:opacity .15s;
+}
+.act.primary{background:var(--paper-rule); color:var(--paper)}
+.act:hover{opacity:.78}
+
+/* ---------- stats + footer ---------- */
+.strip{margin-top:32px; display:grid; gap:4px; grid-template-columns:repeat(auto-fit,minmax(120px,1fr))}
+.stat{
+  border:1.5px solid var(--line); border-radius:2px; background:var(--surface);
+  padding:13px 15px; display:flex; flex-direction:column; gap:2px;
+}
+.stat b{
+  font-family:var(--f-label); font-weight:600; font-size:27px; line-height:1.02;
+  font-variant-numeric:tabular-nums;
+}
+.stat .k{letter-spacing:.17em}
+details.howto{margin-top:30px; border-top:1px solid var(--line); padding-top:18px}
+details.howto summary{
+  font-family:var(--f-label); font-size:12px; letter-spacing:.17em; text-transform:uppercase;
+  color:var(--ink-2); cursor:pointer; list-style:none;
+}
+details.howto summary::-webkit-details-marker{display:none}
+details.howto summary::before{content:"+ "; color:var(--stamp)}
+details.howto[open] summary::before{content:"\2013 "}
+.howto-grid{
+  margin-top:16px; display:grid; gap:22px 36px;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  font-size:13.5px; color:var(--ink-2);
+}
+.howto-grid h4{
+  margin:0 0 6px; font-family:var(--f-label); font-weight:500; font-size:12px;
+  letter-spacing:.15em; text-transform:uppercase; color:var(--ink);
+}
+.howto-grid p{margin:0 0 9px; max-width:56ch}
+.legend{display:flex; flex-wrap:wrap; gap:7px; margin-top:6px}
+.legend span{
+  display:inline-flex; align-items:center; gap:7px; font-size:12px;
+  border:1px solid var(--line); border-radius:1px; padding:4px 9px;
+}
+.legend i{width:11px; height:11px; border-radius:1px; display:block}
+.foot{
+  margin-top:36px; padding-top:18px; border-top:3px double var(--rule);
+  font-size:12px; color:var(--ink-3); display:flex; flex-wrap:wrap; gap:6px 24px;
+}
+.foot a{color:var(--ink-2)}
+.toast{
+  position:fixed; left:50%; bottom:28px; transform:translateX(-50%);
+  background:var(--rule); color:var(--bg); padding:11px 20px; border-radius:2px;
+  font-family:var(--f-label); font-size:12px; letter-spacing:.13em; text-transform:uppercase;
+  box-shadow:var(--shadow); z-index:60;
+}
+.toast[hidden]{display:none}
+/* --- 5. Adaptatif ------------------------------------------------- */
+@media (prefers-reduced-motion: reduce){
+  .att, .hintrow, .poster, .captured{animation:none}
+}
+@media (max-width:640px){
+  /* Sur un telephone, 647 px defilaient avant la premiere ligne de
+     resultat, sur 812 px de haut : on jouait a l'aveugle. Ce qui suit
+     ne retire aucune information, il resserre ce qui etait dimensionne
+     pour un ecran large. */
+  .masthead{padding:20px 0 0}
+  /* L'accroche redit mot pour mot ce que porte le panneau juste en
+     dessous ; sur cette largeur elle ne fait que repousser le jeu. */
+  .tagline{display:none}
+  .mh-main{gap:16px; padding:6px 0 10px}
+  .dateline{font-size:10px; gap:3px 16px; padding:7px 0 8px}
+  .modebar{gap:6px; padding:14px 0 2px}
+  /* Sur un telephone, cinq onglets de mode occupent trois lignes avant
+     meme que le jeu ne commence, et les six registres du lexique en
+     prennent autant. Le menu dit la meme chose en une ligne et rend la
+     place au contenu. Les deux barres portent la classe .modebar, donc
+     la meme regle les sert toutes les deux. */
+  .modebar .onglets{display:none}
+  .modebar .menu{display:inline-flex}
+  .modebar > select.barre-menu{display:inline-block; height:100%}
+  .modebar .menu .menu-bouton{min-width:min(58vw, 260px)}
+  .tab, .practice{font-size:11.5px; padding:7px 11px; gap:7px}
+  .brief{margin-top:12px; padding:16px 18px; gap:16px}
+  .brief h2{font-size:20px}
+  .brief p{margin-top:7px; font-size:13px}
+  .empty{margin-top:18px; padding:20px 16px}
+  /* La saisie garde 16 px : en dessous, iOS zoome la page a la mise au
+     point du champ et ne revient jamais en arriere. */
+  .guessbar{margin-top:12px}
+  .guessbar input{padding:12px 14px}
+
+  /* Quatre attributs de front deviennent illisibles sous 640 px :
+     la grille repasse a deux colonnes, soit quatre rangees. */
+  .fiches{margin-top:18px; gap:9px}
+  .fiche-attrs{grid-template-columns:repeat(2, minmax(0, 1fr)); gap:5px}
+  /* Sur un ecran etroit, une longue liste vaut mieux sur deux lignes
+     que rognee au bord de la fiche. */
+  .hakichips{flex-wrap:wrap}
+  .fiche-tete .nm{font-size:14px}
+
+  .hintrow{flex-wrap:wrap; gap:4px 12px}
+  .hintrow .who{flex:1 1 auto}
+  .hintrow .hint{flex:1 1 100%; margin-left:36px; justify-content:space-between}
+  .seal{width:64px; height:64px}
+  .seal text{display:none}
+  /* Repoussee a droite, la bascule se retrouve seule et orpheline sur sa
+     ligne des que les onglets passent a la ligne. */
+  .practice{margin-left:0}
+  .brief{padding:18px}
+  .poster-in{padding:18px 15px}
+  .captured{font-size:14px; padding:4px 10px; top:2px; right:-2px}
+}
+
+/* --- 6. Pages et etats annexes ------------------------------------ */
+/* .act vit sur le papier de l'affiche et emprunte ses couleurs ; hors
+   de ce contexte il faut un bouton qui suit l'encre de la page. */
+.bouton{
+  display:inline-block; margin-top:16px; cursor:pointer;
+  font-family:var(--f-label); font-weight:500; font-size:12px; letter-spacing:.15em;
+  text-transform:uppercase; text-decoration:none; padding:11px 20px; border-radius:2px;
+  border:1.5px solid var(--rule); background:transparent; color:var(--ink);
+  transition:background .15s, color .15s;
+}
+.bouton:hover{background:var(--rule); color:var(--bg)}
+
+/* 404 : le meme bureau, mais le dossier n'existe pas. */
+.avis-vide{text-align:center; padding:56px 0 8px}
+.avis-vide .code{
+  font-family:var(--f-display); line-height:1; color:var(--stamp);
+  font-size:clamp(72px, 15vw, 148px);
+}
+.avis-vide h2{
+  margin:14px 0 0; font-family:var(--f-label); font-weight:500; font-size:15px;
+  letter-spacing:.22em; text-transform:uppercase; color:var(--ink-2);
+}
+.avis-vide p{margin:14px auto 0; max-width:46ch; font-size:14px; color:var(--ink-3)}
+
+/* --- 7. Comptes, classement, historique --------------------------- */
+/* Tout ce bloc disparaît si l'API ne répond pas : les conteneurs
+   restent [hidden] et le jeu garde son apparence d'origine. */
+
+.compte{
+  display:flex; flex-wrap:wrap; align-items:center; gap:10px 16px;
+  margin-top:16px; padding:11px 15px;
+  border:1.5px solid var(--line); border-radius:2px; background:var(--surface);
+}
+.compte .moi{display:flex; align-items:center; gap:10px; flex:1 1 auto}
+.compte .tete{border-radius:50%; border:1px solid var(--line); display:block}
+.compte .nom{font-family:var(--f-label); font-weight:500; font-size:14px; letter-spacing:.04em}
+.compte-note{font-size:12px; color:var(--ink-3)}
+.compte .sortir{margin:0}
+.compte .lien{
+  border:0; background:none; padding:0; cursor:pointer;
+  font-family:var(--f-label); font-size:11.5px; letter-spacing:.15em;
+  text-transform:uppercase; color:var(--ink-3); text-decoration:underline;
+  text-underline-offset:3px;
+}
+.compte .lien:hover{color:var(--stamp)}
+
+/* Le violet de Discord est sa marque : le garder rend le bouton
+   reconnaissable au premier coup d'œil, là où tout le reste est sépia. */
+.compte .discord{
+  display:inline-flex; align-items:center; gap:10px; text-decoration:none;
+  background:#5865F2; color:#fff; padding:9px 16px; border-radius:2px;
+  font-family:var(--f-label); font-weight:500; font-size:12.5px;
+  letter-spacing:.11em; text-transform:uppercase;
+  box-shadow:var(--lift); transition:filter .15s;
+}
+.compte .discord:hover{filter:brightness(1.08)}
+
+.classement{margin-top:32px; border:1.5px solid var(--line); border-radius:2px;
+  background:var(--surface); padding:16px 18px 14px}
+.cl-tete{display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 14px}
+.cl-tete h3{
+  margin:0; font-family:var(--f-label); font-weight:500; font-size:13px;
+  letter-spacing:.2em; text-transform:uppercase; color:var(--ink);
+}
+.cl-mode{font-size:12px; color:var(--ink-3); letter-spacing:.05em}
+.cl-onglets{display:flex; flex-wrap:wrap; gap:6px; margin:13px 0 4px}
+.cl-onglets .tab{font-size:11.5px; padding:6px 12px}
+/* Deux rangees d'onglets : le perimetre — sur quoi on se compare — puis
+   la portee — ce qu'on compare. La premiere est plus discrete et separee
+   d'un filet, sinon les six boutons se lisent comme un seul choix. */
+.cl-perim{margin-bottom:10px; padding-bottom:11px; border-bottom:1px solid var(--line)}
+.cl-perim .tab{font-size:11px; padding:5px 10px; letter-spacing:.09em}
+
+.cl-liste{list-style:none; margin:12px 0 0; padding:0}
+.cl-liste li{
+  display:flex; align-items:center; gap:11px; padding:7px 9px;
+  border-bottom:1px solid var(--line);
+}
+.cl-liste li:last-child{border-bottom:0}
+.cl-liste li.moi{background:var(--stamp-soft); border-radius:2px}
+.cl-liste .rang{
+  font-family:var(--f-mono); font-size:12px; color:var(--ink-3);
+  font-variant-numeric:tabular-nums; min-width:22px;
+}
+.cl-liste .tete{border-radius:50%; border:1px solid var(--line); display:block}
+.cl-liste .nom{flex:1 1 auto; font-size:13.5px; overflow:hidden;
+  text-overflow:ellipsis; white-space:nowrap}
+.cl-liste .score{
+  font-family:var(--f-label); font-size:12px; letter-spacing:.09em;
+  color:var(--ink-2); font-variant-numeric:tabular-nums; white-space:nowrap;
+  display:flex; align-items:baseline; gap:8px;
+}
+/* La valeur d'appoint est celle qui departage a egalite : elle doit se
+   lire apres le score, pas avec lui. */
+.cl-liste .score i{font-style:normal; font-size:11px; color:var(--ink-3)}
+/* Le repli du partage : quand ni la feuille du systeme ni le presse-
+   papiers ne sont disponibles — c'est le cas en HTTP — on montre le
+   texte, deja selectionne, et le joueur le copie a la main. */
+.partage{margin-top:14px; display:grid; gap:6px}
+.partage .k{
+  font-family:var(--f-label); font-size:10px; letter-spacing:.17em;
+  text-transform:uppercase; color:var(--ink-3);
+}
+.partage textarea{
+  width:100%; resize:vertical; padding:10px 12px;
+  font-family:var(--f-mono); font-size:13px; line-height:1.5;
+  color:var(--ink); background:var(--sunk);
+  border:1.5px solid var(--line); border-radius:2px;
+}
+.partage textarea:focus{outline:none; border-color:var(--stamp)}
+
+.cl-vide{margin:14px 0 4px; font-size:13px; color:var(--ink-3)}
+.cl-pied{margin:11px 0 0; font-size:11.5px; color:var(--ink-3)}
+
+details.hist{margin-top:22px; border-top:1px solid var(--line); padding-top:16px}
+details.hist summary{
+  font-family:var(--f-label); font-size:12px; letter-spacing:.17em;
+  text-transform:uppercase; color:var(--ink-2); cursor:pointer; list-style:none;
+}
+details.hist summary::-webkit-details-marker{display:none}
+details.hist summary::before{content:"+ "; color:var(--stamp)}
+details.hist[open] summary::before{content:"\2013 "}
+.hi-corps{margin-top:12px}
+.hi-ligne{
+  display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 14px;
+  padding:9px 0; border-bottom:1px solid var(--line); font-size:13px;
+}
+.hi-ligne:last-child{border-bottom:0}
+.hi-avis{font-family:var(--f-mono); font-size:12px; color:var(--ink-3);
+  font-variant-numeric:tabular-nums}
+.hi-mode{font-family:var(--f-label); font-size:11.5px; letter-spacing:.13em;
+  text-transform:uppercase; color:var(--ink-2)}
+.hi-cible{font-weight:600}
+.hi-fiches{color:var(--ink-3); font-size:12px}
+/* La suite des fiches versées passe à la ligne : c'est le détail, pas
+   l'information principale. */
+.hi-suite{flex:1 1 100%; font-size:12px; color:var(--ink-3); line-height:1.5}
+
+@media (max-width:640px){
+  .compte{flex-direction:column; align-items:stretch}
+  .compte .discord{justify-content:center}
+  .cl-liste .score{font-size:11.5px}
+}
+
+/* --- 8. Le lobby --------------------------------------------------- */
+.lobby-titre{
+  margin:26px 0 0; font-family:var(--f-label); font-weight:500; font-size:13px;
+  letter-spacing:.2em; text-transform:uppercase; color:var(--ink-2);
+}
+.lobby{
+  margin-top:14px; display:grid; gap:12px;
+  grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));
+  /* Les cartes d'une meme rangee ont deja la meme hauteur ; « 1fr »
+     etend la regle aux rangees suivantes, sinon la carte seule du bas
+     est plus courte et son filet ne tombe pas au meme niveau. */
+  grid-auto-rows:1fr;
+}
+/* Une carte de registre : le sceau du jeu, son nom, et ou en est le
+   joueur. C'est la meme matiere que les fiches du plateau — le lobby
+   doit se lire comme la premiere page du meme dossier. */
+.registre{
+  display:flex; gap:18px; align-items:stretch; text-decoration:none; color:inherit;
+  border:1.5px solid var(--line); border-radius:2px; background:var(--surface);
+  padding:18px 20px; box-shadow:var(--shadow);
+  transition:border-color .15s, transform .15s;
+}
+.registre:hover{border-color:var(--stamp); transform:translateY(-2px)}
+.registre-sceau{
+  flex:none; align-self:flex-start;
+  width:74px; height:74px; color:var(--stamp); opacity:.92;
+  transform:rotate(-7deg); display:block;
+}
+.registre-sceau svg{width:100%; height:100%; display:block}
+.registre-corps{display:flex; flex-direction:column; gap:3px; min-width:0; flex:1 1 auto}
+.registre-nom{
+  font-family:var(--f-display); font-weight:400; font-size:27px; line-height:1.06;
+  letter-spacing:-.01em;
+}
+.registre-texte{font-size:13px; color:var(--ink-2); margin-top:4px}
+/* Le pied est colle en bas de la carte : son filet tombe alors au meme
+   niveau d'une carte a l'autre, quel que soit le nombre de lignes prises
+   par le titre ou le resume au-dessus. Les deux lignes reservees servent
+   au meme but de l'autre cote : sans elles, une carte sans serie en
+   cours remonterait son filet d'une ligne. */
+.registre-etat{
+  margin-top:auto; padding-top:9px; border-top:1px solid var(--line);
+  min-height:calc(9px + 2 * 1.35em);
+  display:flex; flex-wrap:wrap; align-items:baseline; align-content:flex-start;
+  /* Aucun ecart entre les lignes : « Serie 1 » passe a la ligne comme un
+     mot de plus, et non separee de six pixels. Sans ca une carte qui a
+     une serie descend son filet de six pixels sous celui d'une carte
+     dont le seul texte se replie. */
+  gap:0 14px; line-height:1.35;
+  font-family:var(--f-label); font-size:11px; letter-spacing:.13em;
+  text-transform:uppercase; color:var(--ink-3);
+}
+.registre-serie{color:var(--stamp)}
+
+/* Une oeuvre a plusieurs registres : ses cartes occupent deux colonnes
+   et se rangent cote a cote, sous un intitule commun. Sans ca la grille
+   les separait au gre de la largeur — le Journal de Bord finissait une
+   rangee, la Table de Craft en ouvrait une autre, et rien ne disait que
+   c'etait le meme jeu. */
+/* Une oeuvre a plusieurs registres tient UNE case de la grille, comme
+   les autres : le lobby aligne six oeuvres sur deux rangees de trois, et
+   Minecraft n'a pas a en manger deux. Ses registres s'empilent dans la
+   case, et se font compacts pour que la pile fasse la hauteur d'une
+   carte ordinaire — sinon toute la rangee s'etirerait a sa hauteur. */
+.famille{
+  display:grid; gap:8px;
+  grid-template-columns:1fr;
+  align-content:start;
+}
+/* Le lien de parente se marque au trait, pas au cadre : un cadre autour
+   de la paire ajoutait sa bordure et son fond a la hauteur de la rangee,
+   et « grid-auto-rows:1fr » etirait toutes les autres d'autant. Le trait
+   du dessus ne coute rien en hauteur — il se pose sur l'ecart de la
+   grille, au-dessus des deux cartes a la fois. */
+.famille::before{
+  content:attr(data-oeuvre);
+  position:relative; top:-3px; height:0; overflow:visible;
+  font-family:var(--f-label); font-size:9.5px; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--stamp); opacity:.75;
+}
+/* Dans une famille, la carte perd son resume : le nom, le sceau et
+   l'etat suffisent a choisir, et deux cartes completes auraient fait
+   deux fois la hauteur d'une case. */
+.famille .registre{padding:12px 14px; gap:12px}
+.famille .registre-sceau{width:46px; height:46px}
+.famille .registre-nom{font-size:20px}
+.famille .registre-texte{display:none}
+.famille .registre-etat{margin-top:9px; padding-top:7px; min-height:0}
+
+/* Retour au lobby depuis un jeu. */
+.retour{margin:12px 0 0; font-family:var(--f-label); font-size:11.5px;
+  letter-spacing:.15em; text-transform:uppercase}
+.retour a{color:var(--ink-3); text-decoration:none}
+.retour a:hover{color:var(--stamp)}
+
+@media (max-width:960px){
+  /* Et les rangees reprennent leur hauteur naturelle : empilee, la
+     famille en occupe deux, et « 1fr » etirait chaque carte seule a la
+     hauteur de la paire — 386 px au lieu de 183. Les cartes se suivent
+     verticalement ici, leurs filets n'ont plus a se faire face. */
+  .lobby{grid-auto-rows:auto}
+}
+@media (max-width:640px){
+  .lobby{grid-template-columns:1fr; gap:10px}
+  .famille::before{top:-2px}
+  .registre{padding:14px 16px; gap:14px}
+  .registre-sceau{width:58px; height:58px}
+  .registre-nom{font-size:23px}
+}
+
+/* ==================================================================
+   LE LEXIQUE  (lexique.html)
+
+   La liste complete d'un registre. Elle reprend les briques du jeu — la
+   plaque, la barre d'onglets, la typographie des fiches — pour se lire
+   comme une autre page du meme dossier, pas comme un annuaire a part.
+   ================================================================== */
+
+/* Les onglets de registre sont des liens, pas des boutons d'onglet :
+   c'est aria-current qui marque la page ouverte, la ou la barre de
+   modes emploie aria-selected. Meme apparence, roles differents. */
+.tab[aria-current="page"]{
+  border-color:var(--stamp); color:var(--ink); background:var(--stamp-soft);
+  box-shadow:var(--lift);
+}
+.tab[aria-current="page"]::before{background:var(--stamp)}
+a.tab{text-decoration:none}
+
+.lx-outils{
+  display:flex; flex-wrap:wrap; gap:9px; align-items:center;
+  padding:18px 0 4px; margin-bottom:14px;
+  border-bottom:1px solid var(--line);
+}
+/* Tous les controles de la barre partagent la meme hauteur : ils sont
+   sur une ligne, une difference de quelques pixels se voit tout de
+   suite. 38 px de contenu + 2 x 1.5 px de bordure. */
+.lx-outils > *{height:41px}
+.lx-outils input[type="search"]{
+  flex:1 1 240px; min-width:0;
+  padding:0 12px; border:1.5px solid var(--line); border-radius:8px;
+  background:var(--sunk); color:var(--ink);
+  font-family:var(--f-body); font-size:14px;
+}
+.lx-outils input[type="search"]:focus{outline:none; border-color:var(--stamp)}
+
+/* Les menus deroulants natifs jurent avec le reste : chaque systeme
+   dessine le sien, avec sa fleche, ses coins et sa police. On reprend la
+   main dessus — meme cadre que les onglets, meme chevron partout.
+   Ce qui suit habille le <select> lui-meme, et sert de repli : si
+   menu.js ne se charge pas, la barre reste correcte et utilisable. La
+   liste ouverte, elle, est remplacee par .menu-liste plus bas — c'est
+   le seul morceau qu'une feuille de style ne peut pas atteindre. */
+.lx-outils select{
+  appearance:none; -webkit-appearance:none;
+  padding:0 32px 0 12px; border:1.5px solid var(--line); border-radius:2px;
+  background-color:var(--sunk); color:var(--ink-2); cursor:pointer;
+  font-family:var(--f-label); font-weight:500; font-size:12px;
+  letter-spacing:.1em; text-transform:uppercase;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5 6 6.5l5-5' fill='none' stroke='%237C8482' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 11px center;
+  background-size:11px 7px;
+  transition:border-color .15s, color .15s;
+}
+.lx-outils select:hover{border-color:var(--ink-3); color:var(--ink)}
+.lx-outils select:focus{outline:none; border-color:var(--stamp); color:var(--ink)}
+/* La liste deroulee suit le theme de la page, pas celui du systeme. */
+.lx-outils select option{
+  background:var(--surface); color:var(--ink);
+  font-family:var(--f-body); text-transform:none; letter-spacing:0;
+}
+/* Le bouton de la barre : meme gabarit que les menus. Sa marge haute,
+   heritee de .bouton, le decalait d'une demi-hauteur. */
+.lx-outils .bouton{
+  margin-top:0; padding:0 18px; display:inline-flex; align-items:center;
+  border-radius:8px;
+}
+/* ------------------------------------------------------------------
+   Le menu deroulant maison
+
+   Un fond blanc et un surlignage bleu au milieu d'un dossier sombre : la
+   liste du systeme etait le dernier morceau de page qui n'obeissait pas.
+   menu.js la remplace par celle-ci et garde le <select> derriere, muet,
+   pour porter la valeur. D'ou le repli : sans JavaScript, le <select>
+   reprend sa place et son style, quelques regles plus haut.
+   ------------------------------------------------------------------ */
+.menu{position:relative; display:inline-flex; vertical-align:top}
+/* Le <select> habille ne s'affiche plus mais reste dans le document :
+   c'est lui qui porte la valeur et qui emet « change ». */
+.menu > select[data-habille]{
+  position:absolute; width:1px; height:1px; padding:0; margin:0;
+  border:0; opacity:0; pointer-events:none; clip-path:inset(50%);
+}
+.menu-bouton{
+  display:inline-flex; align-items:center; gap:10px; height:100%;
+  max-width:100%; padding:0 12px;
+  border:1.5px solid var(--line);
+  /* Huit pixels, comme le panneau qu il ouvre : ferme ou ouvert, le
+     menu se lit comme une seule piece. Ses voisins de barre restent a
+     deux, c est le trait du reste du site. */
+  border-radius:8px;
+  background:var(--sunk); color:var(--ink-2); cursor:pointer;
+  font-family:var(--f-label); font-weight:500; font-size:12px;
+  letter-spacing:.1em; text-transform:uppercase;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+  transition:border-color .15s, color .15s;
+}
+.menu-bouton:hover{border-color:var(--ink-3); color:var(--ink)}
+.menu-bouton:focus-visible{outline:none; border-color:var(--stamp); color:var(--ink)}
+.menu-bouton[aria-expanded="true"]{border-color:var(--stamp); color:var(--ink)}
+/* Le chevron est dessine, pas ecrit : il suit la couleur du texte et
+   pivote a l'ouverture, ce qu'une image de fond ne sait pas faire. */
+.menu-bouton::after{
+  content:""; flex:none; width:9px; height:6px; margin-left:auto;
+  background:currentColor; clip-path:polygon(0 0, 100% 0, 50% 100%);
+  transition:transform .16s ease;
+}
+.menu-bouton[aria-expanded="true"]::after{transform:rotate(180deg)}
+
+/* Propre au menu : il se cale sous son bouton sans depasser l'ecran, et
+   ses intitules tiennent sur une ligne. Le panneau et les rangees
+   viennent de la regle partagee, plus haut. */
+.menu-liste{
+  z-index:60; top:calc(100% + 6px); left:0; list-style:none;
+  min-width:100%; max-width:min(320px, 86vw);
+  max-height:min(340px, 56vh);
+}
+/* Au bas d'un ecran court, la liste sortait de la fenetre : menu.js
+   pose cette classe et elle s'ouvre alors vers le haut. */
+.menu-liste.vers-haut{top:auto; bottom:calc(100% + 6px)}
+.menu-liste li{white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+/* Le choix deja retenu se marque d'un bloc plein, pas d'un simple
+   lisere : dans une liste de dix-neuf types ou de six registres, on le
+   retrouve sans lire. Cette regle vient apres celle du curseur, donc son
+   fond l'emporte — survoler le choix courant ne le fait pas disparaitre,
+   le lisere du curseur s'ajoute par-dessus.
+
+   Le coin reste a deux pixels, comme tout le reste du site : c'est un
+   dossier tape a la machine, pas une application aux angles ronds. */
+.menu-liste li[aria-selected="true"]{
+  background:var(--stamp-fill); color:var(--stamp); font-weight:600;
+}
+
+.lx-compte{
+  margin-left:auto; font-family:var(--f-label); font-size:12px;
+  letter-spacing:.13em; text-transform:uppercase; color:var(--ink-3);
+}
+
+/* auto-fill, pas auto-fit : a une seule fiche affichee, auto-fit
+   l'etirerait sur toute la largeur de la page. */
+.lx-grille{
+  display:grid; gap:12px;
+  grid-template-columns:repeat(auto-fill, minmax(232px, 1fr));
+}
+.lx-fiche{
+  background:var(--surface); border:1px solid var(--line); border-radius:2px;
+  box-shadow:var(--lift); overflow:hidden;
+}
+/* Nom et epithete forment une colonne a cote de la plaque : en grille,
+   une fiche sans epithete laissait une rangee vide sous le nom. */
+.lx-fiche header{
+  display:flex; align-items:center; gap:11px; padding:11px 12px;
+  background:var(--surface-2); border-bottom:1px solid var(--line);
+}
+.lx-fiche header .mug{flex:none}
+.lx-id{display:flex; flex-direction:column; gap:2px; min-width:0}
+.lx-nom{
+  font-family:var(--f-label); font-weight:600; font-size:14px;
+  letter-spacing:.02em; color:var(--ink); overflow-wrap:anywhere;
+}
+.lx-ep{font-size:11.5px; color:var(--ink-3); font-style:italic; overflow-wrap:anywhere}
+
+.lx-corps{padding:4px 12px 10px}
+.lx-l{
+  display:flex; justify-content:space-between; gap:10px;
+  padding:5px 0; border-bottom:1px dotted var(--line); font-size:12.5px;
+}
+.lx-l:last-child{border-bottom:none}
+.lx-l .k{
+  font-family:var(--f-label); font-size:10.5px; letter-spacing:.13em;
+  text-transform:uppercase; color:var(--ink-3); flex:none; padding-top:1px;
+}
+.lx-l .v{color:var(--ink-2); text-align:right; overflow-wrap:anywhere}
+
+.lx-sentinelle{
+  padding:26px 0; text-align:center;
+  font-family:var(--f-label); font-size:11.5px; letter-spacing:.15em;
+  text-transform:uppercase; color:var(--ink-3);
+}
+
+@media (max-width:640px){
+  .lx-grille{grid-template-columns:repeat(auto-fill, minmax(170px, 1fr))}
+  /* La barre d'outils tenait sur quatre lignes et 214 px : la recherche,
+     les deux menus, le bouton, puis le decompte seul sur toute la
+     largeur. Trois lignes suffisent, et le decompte se range au bout de
+     la derniere au lieu d'en prendre une pour lui. */
+  .lx-outils{gap:8px; padding:14px 0 4px; margin-bottom:12px}
+  .lx-outils > *{height:38px}
+  /* La recherche garde sa ligne entiere : c'est le champ ou l'on tape,
+     et le partager le rendait trop etroit pour lire ce qu'on ecrit. */
+  .lx-outils input[type="search"]{flex:1 1 100%}
+  /* Les menus se partagent une ligne a deux. Quand le filtre de valeurs
+     apparait, le troisieme passe a la ligne plutot que de reduire les
+     trois a un tiers de largeur, ou plus aucun intitule ne tiendrait. */
+  .lx-outils .menu{flex:1 1 calc(50% - 4px); min-width:0}
+  .lx-outils .menu-bouton{width:100%}
+  .lx-outils .bouton{padding:0 14px}
+  /* Le decompte finit la derniere ligne, pousse a droite par sa marge
+     automatique. Il n'a pas besoin des 38 px des controles : ce n'est
+     pas une commande, c'est une mention. */
+  .lx-compte{height:auto; font-size:11px; letter-spacing:.1em}
+}
+
+/* Le bouton qui mene au lexique depuis une page de jeu et depuis le
+   lobby. Il reprend le trait de « .retour » : c'est une sortie de page,
+   pas une commande du jeu. */
+.vers-lexique{
+  display:inline-flex; align-items:center; gap:8px;
+  margin-left:auto;
+  font-family:var(--f-label); font-weight:500; font-size:12.5px;
+  letter-spacing:.11em; text-transform:uppercase;
+  padding:8px 15px; border:1.5px solid var(--line); border-radius:8px;
+  color:var(--ink-2); text-decoration:none; background:transparent;
+  transition:border-color .15s, color .15s, background .15s;
+}
+.vers-lexique:hover{border-color:var(--stamp); color:var(--ink); background:var(--stamp-soft)}
+/* La bascule Entrainement reclame deja « margin-left:auto » dans la
+   barre de modes : les deux cote a cote, seul le premier pousse. */
+.modebar .practice + .vers-lexique{margin-left:0}
+
+/* La rangee de lexiques sous les cartes du lobby. */
+.lex-liens{
+  display:flex; flex-wrap:wrap; align-items:center; gap:8px;
+  margin-top:22px; padding-top:16px; border-top:1px solid var(--line);
+}
+.lex-liens-titre{
+  font-family:var(--f-label); font-size:11px; letter-spacing:.15em;
+  text-transform:uppercase; color:var(--ink-3); margin-right:4px;
+}
+.lex-liens a{
+  font-family:var(--f-label); font-size:12px; letter-spacing:.08em;
+  padding:6px 12px; border:1px solid var(--line); border-radius:2px;
+  color:var(--ink-2); text-decoration:none;
+  transition:border-color .15s, color .15s, background .15s;
+}
+.lex-liens a:hover{border-color:var(--stamp); color:var(--ink); background:var(--stamp-soft)}

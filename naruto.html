@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+
+<title>Bingo Book — le jeu Naruto quotidien</title>
+<meta name="description" content="Un ninja de Naruto recherché chaque jour. Recoupez village, clan, kekkei genkai, nature de chakra, rang et taille jusqu'à l'identifier.">
+
+<!-- ATTENTION : bureau-des-primes.example est un domaine de démonstration.
+     Remplacez-le par le vrai domaine ici, dans 404.html, robots.txt et
+     sitemap.xml avant la mise en ligne (voir README.md). -->
+<link rel="canonical" href="https://bureau-des-primes.example/naruto.html">
+<meta name="theme-color" content="#DFD9CA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0D141A" media="(prefers-color-scheme: dark)">
+
+<!-- Le choix de theme est relu ici, avant le premier rendu : pose plus
+     tard, la page clignoterait dans l'autre camp avant de basculer.
+     Le module qui gere le reste : assets/js/theme.js -->
+<script>try{var t=localStorage.getItem('bdp.theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Bureau des Primes">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:url" content="https://bureau-des-primes.example/naruto.html">
+<meta property="og:title" content="Bingo Book — le jeu Naruto quotidien">
+<meta property="og:description" content="Un ninja de Naruto recherché chaque jour. Recoupez village, clan, kekkei genkai, nature de chakra, rang et taille jusqu'à l'identifier.">
+<meta property="og:image" content="https://bureau-des-primes.example/assets/img/og-naruto.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Fiche de ciblage des Cinq Nations — Bingo Book">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Oswald:wght@300;400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+
+<link rel="preload" as="fetch" href="assets/data/naruto.json" crossorigin>
+<script type="module" src="assets/js/app.js"></script>
+<script type="module" src="assets/js/compte.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://bureau-des-primes.example/#site",
+      "name": "Bureau des Primes",
+      "url": "https://bureau-des-primes.example/",
+      "inLanguage": "fr-FR"
+    },
+    {
+      "@type": "Game",
+      "name": "Bingo Book",
+      "url": "https://bureau-des-primes.example/",
+      "inLanguage": "fr-FR",
+      "genre": "Jeu de déduction quotidien",
+      "isPartOf": { "@id": "https://bureau-des-primes.example/#site" },
+      "description": "Un ninja de Naruto recherché chaque jour. Chaque proposition compare huit attributs avec la cible jusqu'à l'identification.",
+      "numberOfPlayers": { "@type": "QuantitativeValue", "value": 1 },
+      "isAccessibleForFree": true
+    }
+  ]
+}
+</script>
+<script type="module" src="assets/js/theme.js"></script>
+</head>
+<body data-univers="naruto">
+
+<div class="wrap">
+  <header class="masthead">
+    <div class="mh-top" id="mh-top">&nbsp;</div>
+    <div class="mh-main">
+      <h1 class="wordmark" id="wordmark">&nbsp;</h1>
+      <div class="seal" id="sceau" aria-hidden="true"></div>
+    </div>
+    <div class="dateline">
+      <span id="dl-date">&mdash;</span>
+      <span class="sep"></span>
+      <span>Avis n&deg; <b id="dk-num">&mdash;</b></span>
+      <span>S&eacute;rie <b id="dk-streak">0</b></span>
+      <span>Fiches vers&eacute;es <b id="dk-count">0</b></span>
+      <span class="theme" id="theme" hidden></span>
+    </div>
+    <p class="tagline" id="tagline">&nbsp;</p>
+    <p class="retour"><a href="./">&larr; Tous les registres</a></p>
+  </header>
+
+  <section class="compte" id="compte" hidden></section>
+
+  <noscript class="noscript">Ce jeu se joue avec JavaScript. Activez-le dans votre navigateur, puis rechargez la page.</noscript>
+
+  <nav class="modebar" id="modebar" aria-label="Modes de jeu"></nav>
+
+  <main>
+    <section class="brief" id="brief"></section>
+
+    <form class="guessbar" id="form" autocomplete="off">
+      <input id="input" type="text" placeholder="Nom d'un personnage&hellip;" aria-label="Proposer un personnage" aria-autocomplete="list" aria-controls="ac">
+      <button type="submit" id="submit">V&eacute;rifier</button>
+      <ul class="ac" id="ac" role="listbox" aria-label="Suggestions" hidden></ul>
+    </form>
+
+    <div id="play">
+      <div class="empty"><h3>Ouverture du dossier</h3>
+      <p>Chargement du registre des personnages&hellip;</p></div>
+    </div>
+    <div id="verdict"></div>
+    <div class="strip" id="strip"></div>
+
+    <section class="classement" id="classement" hidden></section>
+
+    <details class="hist" id="historique" hidden>
+      <summary>Mes avis class&eacute;s</summary>
+      <div class="hi-corps"></div>
+    </details>
+
+    <details class="howto">
+      <summary>Comment jouer</summary>
+      <div class="howto-grid">
+        <div>
+          <h4>Mode Classique</h4>
+          <p>Chaque fiche vers&eacute;e compare huit attributs avec le ninja recherch&eacute;. Les fl&egrave;ches &#9650; &#9660; indiquent que la vraie valeur est plus haute ou plus basse.</p>
+          <div class="legend">
+            <span><i style="background:var(--ok)"></i> Exact</span>
+            <span><i style="background:var(--warn)"></i> Proche ou partiel</span>
+            <span><i style="background:var(--miss)"></i> Aucun rapport</span>
+          </div>
+        </div>
+        <div>
+          <h4>Kekkei Genkai, Technique, Clan, Surnom</h4>
+          <p>Un seul indice au d&eacute;part. Chaque erreur en d&eacute;verrouille un nouveau : village, clan, rang ninja, nature de chakra&hellip; Le but est d'en r&eacute;v&eacute;ler le moins possible.</p>
+          <p>Le jaune du mode Classique se d&eacute;clenche &agrave; &plusmn;15&nbsp;cm sur la taille, un rang ninja d'&eacute;cart, ou un arc d'&eacute;cart sur la premi&egrave;re apparition.</p>
+        </div>
+        <div>
+          <h4>Rythme</h4>
+          <p>Un ninja par mode et par jour, identique pour tout le monde, renouvel&eacute; &agrave; minuit, heure de Paris. Cochez <em>Entra&icirc;nement</em> pour tirer un personnage au hasard sans limite &mdash; la s&eacute;rie quotidienne n'est pas affect&eacute;e.</p>
+        </div>
+      </div>
+    </details>
+
+    <p class="foot">
+      <span id="foot-fan">Projet de fan.</span>
+      <span id="foot-src">Donn&eacute;es v&eacute;rifi&eacute;es sur le <a id="foot-wiki" href="#" target="_blank" rel="noopener">wiki</a> &mdash; <span id="foot-count">&mdash;</span> personnages.</span>
+    </p>
+  </main>
+</div>
+<div class="toast" id="toast" hidden></div>
+
+
+</body>
+</html>

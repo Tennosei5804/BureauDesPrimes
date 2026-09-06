@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+
+<title>Lexique — Bureau des Primes</title>
+<meta name="description" content="La liste complète de chaque registre du Bureau des Primes : personnages de One Piece, Naruto et Bleach, Pokémon, joueurs d'Inazuma Eleven, blocs, objets et créatures de Minecraft, avec leur fiche.">
+
+<!-- ATTENTION : bureau-des-primes.example est un domaine de démonstration.
+     Remplacez-le par le vrai domaine ici, dans 404.html, robots.txt et
+     sitemap.xml avant la mise en ligne (voir README.md). -->
+<link rel="canonical" href="https://bureau-des-primes.example/lexique.html">
+<meta name="theme-color" content="#DFD9CA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0D141A" media="(prefers-color-scheme: dark)">
+
+<!-- Le choix de theme est relu ici, avant le premier rendu : pose plus
+     tard, la page clignoterait dans l'autre camp avant de basculer. -->
+<script>try{var t=localStorage.getItem('bdp.theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Bureau des Primes">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:url" content="https://bureau-des-primes.example/lexique.html">
+<meta property="og:title" content="Lexique — Bureau des Primes">
+<meta property="og:description" content="Tout ce que les registres contiennent : personnages, Pokémon, blocs, objets et créatures, avec leur fiche complète.">
+<meta property="og:image" content="https://bureau-des-primes.example/assets/img/og.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Avis de recherche de la Marine — Bureau des Primes">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Oswald:wght@300;400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+
+<script type="module" src="assets/js/lexique.js"></script>
+<script type="module" src="assets/js/theme.js"></script>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="masthead">
+    <div class="mh-top" id="mh-top">&nbsp;</div>
+    <div class="mh-main">
+      <h1 class="wordmark" id="wordmark">&nbsp;</h1>
+      <div class="seal" id="sceau" aria-hidden="true"></div>
+    </div>
+    <div class="dateline">
+      <span>Lexique</span>
+      <span class="sep"></span>
+      <span>Fiches <b id="foot-count">&mdash;</b></span>
+      <span class="theme" id="theme" hidden></span>
+    </div>
+    <p class="tagline" id="tagline">&nbsp;</p>
+    <p class="retour">
+      <a href="./">&larr; Tous les registres</a>
+      <span aria-hidden="true"> &middot; </span>
+      <a id="vers-jeu" href="./">Jouer &agrave; ce registre &rarr;</a>
+    </p>
+  </header>
+
+  <noscript class="noscript">Le lexique se consulte avec JavaScript. Activez-le dans votre navigateur, puis rechargez la page.</noscript>
+
+  <nav class="modebar" id="registres" aria-label="Registres"></nav>
+
+  <main>
+    <div class="lx-outils">
+      <input id="q" type="search" placeholder="Rechercher un nom, un attribut&hellip;" aria-label="Rechercher dans le registre" autocomplete="off">
+      <select id="f-attr" aria-label="Filtrer par attribut"></select>
+      <select id="f-valeur" aria-label="Valeur du filtre" hidden></select>
+      <select id="tri" aria-label="Trier"></select>
+      <button type="button" class="bouton" id="vider">Tout afficher</button>
+      <span class="lx-compte" id="compte-lex" aria-live="polite">&mdash;</span>
+    </div>
+
+    <div class="lx-grille" id="grille"></div>
+    <div class="lx-sentinelle" id="sentinelle" hidden>Chargement de la suite&hellip;</div>
+
+    <p class="foot">
+      <span id="foot-fan">Projet de fan.</span>
+      <span id="foot-src">Donn&eacute;es v&eacute;rifi&eacute;es sur le <a id="foot-wiki" href="#" target="_blank" rel="noopener">wiki</a>.</span>
+    </p>
+  </main>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,2080 @@
+{
+ "univers": "inazuma",
+ "modes": [
+  {
+   "id": "classique",
+   "champ": null
+  },
+  {
+   "id": "technique",
+   "champ": "techniqueSeul"
+  },
+  {
+   "id": "equipe",
+   "champ": "equipes"
+  },
+  {
+   "id": "numero",
+   "champ": "numero"
+  }
+ ],
+ "saisons": [
+  "Football Frontier",
+  "Invasion Extraterrestre",
+  "En route vers le Mondial"
+ ],
+ "persos": [
+  {
+   "nom": "A. Woodbridge",
+   "surnom": "Robot",
+   "genre": "Homme",
+   "element": "Vent",
+   "poste": "Milieu",
+   "pays": "Japon",
+   "technique": "Confusion",
+   "equipes": [
+    "Otaku"
+   ],
+   "apparence": [
+    "Lunettes",
+    "Bandeau"
+   ],
+   "numero": 8,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": ""
+  },
+  {
+   "nom": "Adam Ropes",
+   "surnom": "Ropes",
+   "genre": "Homme",
+   "element": "Vent",
+   "poste": "Gardien",
+   "pays": "Japon",
+   "technique": "Rideau Boréal",
+   "equipes": [
+    "Alpin"
+   ],
+   "apparence": [
+    "Cheveux bruns",
+    "Cicatrice"
+   ],
+   "numero": 1,
+   "saison": "Invasion Extraterrestre",
+   "statut": "Actif",
+   "techniqueSeul": "Rideau Boréal"
+  },
+  {
+   "nom": "Adrian Speed",
+   "surnom": "Guépard",
+   "genre": "Homme",
+   "element": "Vent",
+   "poste": "Attaquant",
+   "pays": "Japon",
+   "technique": "Saut de Tarzan",
+   "equipes": [
+    "Wild"
+   ],
+   "apparence": [
+    "Cheveux roux"
+   ],
+   "numero": 11,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": "Saut de Tarzan"
+  },
+  {
+   "nom": "Alan Downhill",
+   "surnom": "Arkew",
+   "genre": "Homme",
+   "element": "Vent",
+   "poste": "Défenseur",
+   "pays": "Japon",
+   "technique": "Séducteur",
+   "equipes": [
+    "Chaos",
+    "Diamond Dust"
+   ],
+   "apparence": [
+    "Cheveux gris",
+    "Lunettes"
+   ],
+   "numero": 2,
+   "saison": "Invasion Extraterrestre",
+   "statut": "Actif",
+   "techniqueSeul": "Séducteur"
+  },
+  {
+   "nom": "Albert Denver",
+   "surnom": "Gocker",
+   "genre": "Homme",
+   "element": "Terre",
+   "poste": "Défenseur",
+   "pays": "Japon",
+   "technique": "Tacle Glacial",
+   "equipes": [
+    "Chaos",
+    "Diamond Dust"
+   ],
+   "apparence": [
+    "Cheveux bleus"
+   ],
+   "numero": 4,
+   "saison": "Invasion Extraterrestre",
+   "statut": "Actif",
+   "techniqueSeul": "Tacle Glacial"
+  },
+  {
+   "nom": "Albert Green",
+   "surnom": "Greeny",
+   "genre": "Homme",
+   "element": "Feu",
+   "poste": "Gardien",
+   "pays": "Japon",
+   "technique": "Hache du Bûcheron",
+   "equipes": [
+    "Terria"
+   ],
+   "apparence": [
+    "Cheveux bleus"
+   ],
+   "numero": 1,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": "Hache du Bûcheron"
+  },
+  {
+   "nom": "Alessandro Rossa",
+   "surnom": "Rossa",
+   "genre": "Homme",
+   "element": "Bois",
+   "poste": "Milieu",
+   "pays": "Italie",
+   "technique": "Une-Deux Solitaire",
+   "equipes": [
+    "Orphée"
+   ],
+   "apparence": [
+    "Cheveux blonds"
+   ],
+   "numero": 14,
+   "saison": "En route vers le Mondial",
+   "statut": "Actif",
+   "techniqueSeul": "Une-Deux Solitaire"
+  },
+  {
+   "nom": "Alexander Brave",
+   "surnom": "Tombeau",
+   "genre": "Homme",
+   "element": "Feu",
+   "poste": "Milieu",
+   "pays": "Japon",
+   "technique": "Malédiction",
+   "equipes": [
+    "Occulte"
+   ],
+   "apparence": [
+    "Cheveux noirs",
+    "Bandeau"
+   ],
+   "numero": 8,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": "Malédiction"
+  },
+  {
+   "nom": "Alfred Meenan",
+   "surnom": "Meenan",
+   "genre": "Homme",
+   "element": "Bois",
+   "poste": "Défenseur",
+   "pays": "Japon",
+   "technique": "Flèche Ouragan",
+   "equipes": [
+    "Kirkwood"
+   ],
+   "apparence": [
+    "Cheveux violets"
+   ],
+   "numero": 3,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": "Flèche Ouragan"
+  },
+  {
+   "nom": "Ashton Malone",
+   "surnom": "Ark",
+   "genre": "Homme",
+   "element": "Bois",
+   "poste": "Milieu",
+   "pays": "Japon",
+   "technique": "Météore Géant",
+   "equipes": [
+    "Genesis"
+   ],
+   "apparence": [
+    "Lunettes"
+   ],
+   "numero": 8,
+   "saison": "Invasion Extraterrestre",
+   "statut": "Actif",
+   "techniqueSeul": ""
+  },
+  {
+   "nom": "Axel Blaze",
+   "surnom": "Axel",
+   "genre": "Homme",
+   "element": "Feu",
+   "poste": "Attaquant",
+   "pays": "Japon",
+   "technique": "Tornade de Feu",
+   "equipes": [
+    "Inazuma Japon",
+    "Kirkwood",
+    "Premier Raimon",
+    "Raimon"
+   ],
+   "apparence": [
+    "Cheveux bruns",
+    "Queue de cheval",
+    "Capuche"
+   ],
+   "numero": 10,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": ""
+  },
+  {
+   "nom": "Ben Blowton",
+   "surnom": "Bomber",
+   "genre": "Homme",
+   "element": "Feu",
+   "poste": "Milieu",
+   "pays": "Japon",
+   "technique": "Tacle Incendiaire",
+   "equipes": [
+    "Chaos",
+    "Prominence"
+   ],
+   "apparence": [
+    "Cheveux roux",
+    "Bandeau"
+   ],
+   "numero": 5,
+   "saison": "Invasion Extraterrestre",
+   "statut": "Actif",
+   "techniqueSeul": ""
+  },
+  {
+   "nom": "Ben North",
+   "surnom": "Beluga",
+   "genre": "Homme",
+   "element": "Terre",
+   "poste": "Gardien",
+   "pays": "Japon",
+   "technique": "Bloc de Glace",
+   "equipes": [
+    "Diamond Dust"
+   ],
+   "apparence": [
+    "Cheveux noirs",
+    "Visière",
+    "Cicatrice",
+    "Écouteurs"
+   ],
+   "numero": 1,
+   "saison": "Invasion Extraterrestre",
+   "statut": "Actif",
+   "techniqueSeul": "Bloc de Glace"
+  },
+  {
+   "nom": "Bonnie Sparks",
+   "surnom": "Baller",
+   "genre": "Femme",
+   "element": "Bois",
+   "poste": "Défenseur",
+   "pays": "Japon",
+   "technique": "Tacle Incendiaire",
+   "equipes": [
+    "Chaos",
+    "Prominence"
+   ],
+   "apparence": [
+    "Lunettes"
+   ],
+   "numero": 2,
+   "saison": "Invasion Extraterrestre",
+   "statut": "Actif",
+   "techniqueSeul": ""
+  },
+  {
+   "nom": "Bruce Chaney",
+   "surnom": "Chaney",
+   "genre": "Homme",
+   "element": "Bois",
+   "poste": "Milieu",
+   "pays": "Japon",
+   "technique": "Tir Grenade",
+   "equipes": [
+    "Umbrella"
+   ],
+   "apparence": [
+    "Cheveux bleus",
+    "Cicatrice"
+   ],
+   "numero": 6,
+   "saison": "Invasion Extraterrestre",
+   "statut": "Actif",
+   "techniqueSeul": "Tir Grenade"
+  },
+  {
+   "nom": "Bruce Monkey",
+   "surnom": "Singe",
+   "genre": "Homme",
+   "element": "Vent",
+   "poste": "Milieu",
+   "pays": "Japon",
+   "technique": "Pirouette du Singe",
+   "equipes": [
+    "Wild"
+   ],
+   "apparence": [
+    "Cheveux bruns",
+    "Bandeau"
+   ],
+   "numero": 8,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": "Pirouette du Singe"
+  },
+  {
+   "nom": "Bryce Whitingale",
+   "surnom": "Fox (dans l'Anime)",
+   "genre": "Homme",
+   "element": "Vent",
+   "poste": "Attaquant",
+   "pays": "Japon",
+   "technique": "Impact Nordique",
+   "equipes": [
+    "Chaos",
+    "Diamond Dust",
+    "Dragons de Feu"
+   ],
+   "apparence": [
+    "Cheveux blancs"
+   ],
+   "numero": 10,
+   "saison": "Invasion Extraterrestre",
+   "statut": "Actif",
+   "techniqueSeul": "Impact Nordique"
+  },
+  {
+   "nom": "Caleb Stonewall",
+   "surnom": "Stonewall (Inazuma Eleven 2 et Inazuma Eleven Victory Road)",
+   "genre": "Homme",
+   "element": "Feu",
+   "poste": "Milieu",
+   "pays": "Japon",
+   "technique": "Champ d'Énergie",
+   "equipes": [
+    "Inazuma Japon",
+    "Orphée",
+    "Raimon",
+    "Royal Academy"
+   ],
+   "apparence": [
+    "Cheveux bruns",
+    "Queue de cheval",
+    "Tatouage"
+   ],
+   "numero": 10,
+   "saison": "Invasion Extraterrestre",
+   "statut": "Actif",
+   "techniqueSeul": "Champ d'Énergie"
+  },
+  {
+   "nom": "Cameron Morefield",
+   "surnom": "Morefield",
+   "genre": "Homme",
+   "element": "Vent",
+   "poste": "Milieu",
+   "pays": "Japon",
+   "technique": "Dribble Rafale",
+   "equipes": [
+    "Umbrella"
+   ],
+   "apparence": [
+    "Cheveux gris"
+   ],
+   "numero": 10,
+   "saison": "Invasion Extraterrestre",
+   "statut": "Actif",
+   "techniqueSeul": "Dribble Rafale"
+  },
+  {
+   "nom": "Charles Island",
+   "surnom": "",
+   "genre": "Homme",
+   "element": "Bois",
+   "poste": "Défenseur",
+   "pays": "Japon",
+   "technique": "Cyclone",
+   "equipes": [
+    "Onze d'Inazuma"
+   ],
+   "apparence": [
+    "Cheveux blonds",
+    "Barbe"
+   ],
+   "numero": 2,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": "Cyclone"
+  },
+  {
+   "nom": "Charlie Boardfield",
+   "surnom": "Sanglier",
+   "genre": "Homme",
+   "element": "Feu",
+   "poste": "Gardien",
+   "pays": "Japon",
+   "technique": "Griffes Bestiales",
+   "equipes": [
+    "Wild"
+   ],
+   "apparence": [
+    "Cheveux bruns"
+   ],
+   "numero": 1,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": "Griffes Bestiales"
+  },
+  {
+   "nom": "Claude Beacons",
+   "surnom": "Torch",
+   "genre": "Homme",
+   "element": "Feu",
+   "poste": "Attaquant",
+   "pays": "Corée du Sud",
+   "technique": "Éruption Solaire",
+   "equipes": [
+    "Chaos",
+    "Dragons de Feu",
+    "Prominence"
+   ],
+   "apparence": [
+    "Cheveux rouges"
+   ],
+   "numero": 10,
+   "saison": "Invasion Extraterrestre",
+   "statut": "Actif",
+   "techniqueSeul": "Éruption Solaire"
+  },
+  {
+   "nom": "Connor Murray",
+   "surnom": "",
+   "genre": "Homme",
+   "element": "Feu",
+   "poste": "Milieu",
+   "pays": "Japon",
+   "technique": "Sprint Éclair",
+   "equipes": [
+    "Genesis"
+   ],
+   "apparence": [
+    "Cheveux bruns"
+   ],
+   "numero": 6,
+   "saison": "Invasion Extraterrestre",
+   "statut": "Actif",
+   "techniqueSeul": ""
+  },
+  {
+   "nom": "Dan Mirthful",
+   "surnom": "",
+   "genre": "Homme",
+   "element": "Bois",
+   "poste": "Défenseur",
+   "pays": "Japon",
+   "technique": "Scie Circulaire",
+   "equipes": [
+    "Kirkwood"
+   ],
+   "apparence": [
+    "Cheveux verts"
+   ],
+   "numero": 4,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": ""
+  },
+  {
+   "nom": "Daniel Hatch",
+   "surnom": "",
+   "genre": "Homme",
+   "element": "Bois",
+   "poste": "Attaquant",
+   "pays": "Japon",
+   "technique": "Triangle de la Mort",
+   "equipes": [
+    "Néo Japon",
+    "Royal Academy"
+   ],
+   "apparence": [
+    "Cheveux noirs"
+   ],
+   "numero": 9,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": ""
+  },
+  {
+   "nom": "Daniele Santini",
+   "surnom": "Santini",
+   "genre": "Homme",
+   "element": "Feu",
+   "poste": "Gardien",
+   "pays": "Italie",
+   "technique": "Muraille Géante",
+   "equipes": [
+    "Orphée"
+   ],
+   "apparence": [
+    "Cheveux bruns"
+   ],
+   "numero": 12,
+   "saison": "En route vers le Mondial",
+   "statut": "Actif",
+   "techniqueSeul": "Muraille Géante"
+  },
+  {
+   "nom": "David Buckingham",
+   "surnom": "Bucking.",
+   "genre": "Homme",
+   "element": "Terre",
+   "poste": "Défenseur",
+   "pays": "Angleterre",
+   "technique": "Prison de Pierre",
+   "equipes": [
+    "Knights of Queen"
+   ],
+   "apparence": [
+    "Cheveux noirs",
+    "Chapeau"
+   ],
+   "numero": 3,
+   "saison": "En route vers le Mondial",
+   "statut": "Actif",
+   "techniqueSeul": ""
+  },
+  {
+   "nom": "David Samford",
+   "surnom": "Samford",
+   "genre": "Homme",
+   "element": "Bois",
+   "poste": "Attaquant",
+   "pays": "Japon",
+   "technique": "Triangle de la Mort",
+   "equipes": [
+    "Inazuma Japon",
+    "Orphée",
+    "Royal Academy"
+   ],
+   "apparence": [
+    "Cheveux bleus",
+    "Masque"
+   ],
+   "numero": 11,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": ""
+  },
+  {
+   "nom": "David Waterman",
+   "surnom": "Océan",
+   "genre": "Homme",
+   "element": "Vent",
+   "poste": "Défenseur",
+   "pays": "Australie",
+   "technique": "Pierre Tombale",
+   "equipes": [
+    "Big Waves"
+   ],
+   "apparence": [
+    "Cheveux violets"
+   ],
+   "numero": 2,
+   "saison": "En route vers le Mondial",
+   "statut": "Actif",
+   "techniqueSeul": "Pierre Tombale"
+  },
+  {
+   "nom": "Dawson Foxx",
+   "surnom": "Droll",
+   "genre": "Homme",
+   "element": "Vent",
+   "poste": "Milieu",
+   "pays": "Japon",
+   "technique": "Voile d'Eau",
+   "equipes": [
+    "Chaos",
+    "Diamond Dust"
+   ],
+   "apparence": [
+    "Cheveux bleus",
+    "Lunettes",
+    "Masque"
+   ],
+   "numero": 7,
+   "saison": "Invasion Extraterrestre",
+   "statut": "Actif",
+   "techniqueSeul": ""
+  },
+  {
+   "nom": "Dolph Hensen",
+   "surnom": "Dauphin",
+   "genre": "Homme",
+   "element": "Vent",
+   "poste": "Milieu",
+   "pays": "Australie",
+   "technique": "Tir Tsunami",
+   "equipes": [
+    "Big Waves",
+    "Sélection Mondiale"
+   ],
+   "apparence": [
+    "Cheveux blonds"
+   ],
+   "numero": 9,
+   "saison": "En route vers le Mondial",
+   "statut": "Actif",
+   "techniqueSeul": "Tir Tsunami"
+  },
+  {
+   "nom": "Edgar Partinus",
+   "surnom": "",
+   "genre": "Homme",
+   "element": "Bois",
+   "poste": "Attaquant",
+   "pays": "Angleterre",
+   "technique": "Excalibur",
+   "equipes": [
+    "Knights of Queen",
+    "Sélection Mondiale"
+   ],
+   "apparence": [
+    "Cheveux bleus"
+   ],
+   "numero": 10,
+   "saison": "En route vers le Mondial",
+   "statut": "Actif",
+   "techniqueSeul": "Excalibur"
+  },
+  {
+   "nom": "Finn Stoned",
+   "surnom": "Bandit",
+   "genre": "Homme",
+   "element": "Feu",
+   "poste": "Défenseur",
+   "pays": "Japon",
+   "technique": "Feinte de la Taupe",
+   "equipes": [
+    "Shuriken"
+   ],
+   "apparence": [
+    "Cheveux bleus",
+    "Cicatrice"
+   ],
+   "numero": 5,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": "Feinte de la Taupe"
+  },
+  {
+   "nom": "Gaby Farmer",
+   "surnom": "",
+   "genre": "Homme",
+   "element": "Vent",
+   "poste": "Attaquant",
+   "pays": "Japon",
+   "technique": "Passage en Force",
+   "equipes": [
+    "Otaku"
+   ],
+   "apparence": [
+    "Cheveux noirs",
+    "Lunettes"
+   ],
+   "numero": 7,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": "Passage en Force"
+  },
+  {
+   "nom": "Galen Thunderbird",
+   "surnom": "Tonnerre",
+   "genre": "Homme",
+   "element": "Terre",
+   "poste": "Défenseur",
+   "pays": "Japon",
+   "technique": "Nuage de Poison",
+   "equipes": [
+    "Shuriken"
+   ],
+   "apparence": [
+    "Cheveux bruns"
+   ],
+   "numero": 4,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": "Nuage de Poison"
+  },
+  {
+   "nom": "Garret Hairtown",
+   "surnom": "",
+   "genre": "Homme",
+   "element": "Vent",
+   "poste": "Défenseur",
+   "pays": "Japon",
+   "technique": "Scie Circulaire",
+   "equipes": [
+    "Onze d'Inazuma"
+   ],
+   "apparence": [
+    "Cheveux gris",
+    "Barbe"
+   ],
+   "numero": 3,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": ""
+  },
+  {
+   "nom": "Gus Gamer",
+   "surnom": "Gamer",
+   "genre": "Homme",
+   "element": "Feu",
+   "poste": "Attaquant",
+   "pays": "Japon",
+   "technique": "Batte Toute-Puissante",
+   "equipes": [
+    "Otaku"
+   ],
+   "apparence": [
+    "Cheveux bruns",
+    "Bandeau"
+   ],
+   "numero": 9,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": "Batte Toute-Puissante"
+  },
+  {
+   "nom": "Hank Tennyson",
+   "surnom": "",
+   "genre": "Homme",
+   "element": "Vent",
+   "poste": "Milieu",
+   "pays": "Australie",
+   "technique": "Voile d'Eau",
+   "equipes": [
+    "Big Waves"
+   ],
+   "apparence": [
+    "Cheveux bleus",
+    "Lunettes"
+   ],
+   "numero": 8,
+   "saison": "En route vers le Mondial",
+   "statut": "Actif",
+   "techniqueSeul": ""
+  },
+  {
+   "nom": "Herman Muller",
+   "surnom": "",
+   "genre": "Homme",
+   "element": "Vent",
+   "poste": "Gardien",
+   "pays": "Japon",
+   "technique": "Sentinelle",
+   "equipes": [
+    "Inazuma KFT"
+   ],
+   "apparence": [
+    "Cheveux noirs",
+    "Chapeau"
+   ],
+   "numero": 1,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": "Sentinelle"
+  },
+  {
+   "nom": "Herman Waldon",
+   "surnom": "",
+   "genre": "Homme",
+   "element": "Vent",
+   "poste": "Milieu",
+   "pays": "Japon",
+   "technique": "Tacle de la Mort",
+   "equipes": [
+    "Royal Academy"
+   ],
+   "apparence": [
+    "Cheveux gris"
+   ],
+   "numero": 6,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": ""
+  },
+  {
+   "nom": "Hidetoshi Nakata",
+   "surnom": "Nakata",
+   "genre": "Homme",
+   "element": "Terre",
+   "poste": "Milieu",
+   "pays": "Japon",
+   "technique": "Tir Vaillant",
+   "equipes": [
+    "Orphée"
+   ],
+   "apparence": [
+    "Cheveux bruns"
+   ],
+   "numero": 7,
+   "saison": "En route vers le Mondial",
+   "statut": "Actif",
+   "techniqueSeul": "Tir Vaillant"
+  },
+  {
+   "nom": "Hunt Mercer",
+   "surnom": "Hauser",
+   "genre": "Homme",
+   "element": "Terre",
+   "poste": "Défenseur",
+   "pays": "Japon",
+   "technique": "Ballon de Plomb",
+   "equipes": [
+    "Genesis"
+   ],
+   "apparence": [
+    "Cheveux bruns"
+   ],
+   "numero": 5,
+   "saison": "Invasion Extraterrestre",
+   "statut": "Actif",
+   "techniqueSeul": "Ballon de Plomb"
+  },
+  {
+   "nom": "Isabelle Trick",
+   "surnom": "Bellatrix",
+   "genre": "Femme",
+   "element": "Vent",
+   "poste": "Milieu",
+   "pays": "Japon",
+   "technique": "Supernova",
+   "equipes": [
+    "Genesis"
+   ],
+   "apparence": [
+    "Cheveux bleus"
+   ],
+   "numero": 10,
+   "saison": "Invasion Extraterrestre",
+   "statut": "Actif",
+   "techniqueSeul": "Supernova"
+  },
+  {
+   "nom": "Izzy Island",
+   "surnom": "",
+   "genre": "Homme",
+   "element": "Bois",
+   "poste": "Défenseur",
+   "pays": "Japon",
+   "technique": "Tourbillon",
+   "equipes": [
+    "Inazuma KFT"
+   ],
+   "apparence": [
+    "Cheveux bleus",
+    "Lunettes"
+   ],
+   "numero": 4,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": ""
+  },
+  {
+   "nom": "Jamie Cool",
+   "surnom": "",
+   "genre": "Homme",
+   "element": "Vent",
+   "poste": "Milieu",
+   "pays": "Japon",
+   "technique": "Tir du Faucon",
+   "equipes": [
+    "Inazuma KFT"
+   ],
+   "apparence": [
+    "Cheveux violets",
+    "Queue de cheval"
+   ],
+   "numero": 8,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": ""
+  },
+  {
+   "nom": "Janison Veteran",
+   "surnom": "Veteran",
+   "genre": "Homme",
+   "element": "Feu",
+   "poste": "Gardien",
+   "pays": "Japon",
+   "technique": "Infatigable",
+   "equipes": [
+    "Onze d'Inazuma"
+   ],
+   "apparence": [
+    "Casquette",
+    "Barbe"
+   ],
+   "numero": 1,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": "Infatigable"
+  },
+  {
+   "nom": "Jason Strike",
+   "surnom": "Strike",
+   "genre": "Homme",
+   "element": "Feu",
+   "poste": "Défenseur",
+   "pays": "Japon",
+   "technique": "Vol Rapide",
+   "equipes": [
+    "Umbrella"
+   ],
+   "apparence": [],
+   "numero": 3,
+   "saison": "Invasion Extraterrestre",
+   "statut": "Actif",
+   "techniqueSeul": ""
+  },
+  {
+   "nom": "Jeff Iron",
+   "surnom": "Héphaistos",
+   "genre": "Homme",
+   "element": "Feu",
+   "poste": "Défenseur",
+   "pays": "Japon",
+   "technique": "Attaque Tempête",
+   "equipes": [
+    "Zeus"
+   ],
+   "apparence": [
+    "Cheveux violets"
+   ],
+   "numero": 3,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": ""
+  },
+  {
+   "nom": "Jim Hillfort",
+   "surnom": "Citadelle",
+   "genre": "Homme",
+   "element": "Vent",
+   "poste": "Défenseur",
+   "pays": "Japon",
+   "technique": "Toile d'Araignée",
+   "equipes": [
+    "Shuriken"
+   ],
+   "apparence": [
+    "Cheveux bruns",
+    "Bandeau"
+   ],
+   "numero": 3,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": "Toile d'Araignée"
+  },
+  {
+   "nom": "Jim Wraith",
+   "surnom": "",
+   "genre": "Homme",
+   "element": "Bois",
+   "poste": "Défenseur",
+   "pays": "Japon",
+   "technique": "Spirale de Défense",
+   "equipes": [
+    "Empereurs Noirs",
+    "Raimon"
+   ],
+   "apparence": [
+    "Cheveux violets"
+   ],
+   "numero": 4,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": "Spirale de Défense"
+  },
+  {
+   "nom": "Joe Dawes",
+   "surnom": "",
+   "genre": "Homme",
+   "element": "Feu",
+   "poste": "Attaquant",
+   "pays": "Australie",
+   "technique": "Mégalodon",
+   "equipes": [
+    "Big Waves"
+   ],
+   "apparence": [],
+   "numero": 11,
+   "saison": "En route vers le Mondial",
+   "statut": "Actif",
+   "techniqueSeul": "Mégalodon"
+  },
+  {
+   "nom": "Joe Ingram",
+   "surnom": "Ingram",
+   "genre": "Homme",
+   "element": "Feu",
+   "poste": "Gardien",
+   "pays": "Japon",
+   "technique": "Arrêt Tourbillon",
+   "equipes": [
+    "Umbrella"
+   ],
+   "apparence": [],
+   "numero": 1,
+   "saison": "Invasion Extraterrestre",
+   "statut": "Actif",
+   "techniqueSeul": "Arrêt Tourbillon"
+  },
+  {
+   "nom": "John Neville",
+   "surnom": "Neville",
+   "genre": "Homme",
+   "element": "Feu",
+   "poste": "Gardien",
+   "pays": "Japon",
+   "technique": "Blocage de Force",
+   "equipes": [
+    "Kirkwood"
+   ],
+   "apparence": [
+    "Cheveux bruns"
+   ],
+   "numero": 1,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": "Blocage de Force"
+  },
+  {
+   "nom": "Jonas Démétrius",
+   "surnom": "Déméter",
+   "genre": "Homme",
+   "element": "Feu",
+   "poste": "Attaquant",
+   "pays": "Japon",
+   "technique": "Attaque Tempête",
+   "equipes": [
+    "Néo Japon",
+    "Zeus"
+   ],
+   "apparence": [
+    "Cheveux noirs"
+   ],
+   "numero": 9,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": ""
+  },
+  {
+   "nom": "Jonathan Seller",
+   "surnom": "Seller",
+   "genre": "Homme",
+   "element": "Vent",
+   "poste": "Attaquant",
+   "pays": "Japon",
+   "technique": "Tir Psychique",
+   "equipes": [
+    "Cybertech"
+   ],
+   "apparence": [
+    "Cheveux gris",
+    "Queue de cheval"
+   ],
+   "numero": 9,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": ""
+  },
+  {
+   "nom": "Jonny Gascon",
+   "surnom": "Gazzer",
+   "genre": "Homme",
+   "element": "Bois",
+   "poste": "Défenseur",
+   "pays": "Angleterre",
+   "technique": "Prison de Pierre",
+   "equipes": [
+    "Knights of Queen"
+   ],
+   "apparence": [
+    "Chauve",
+    "Tatouage"
+   ],
+   "numero": 2,
+   "saison": "En route vers le Mondial",
+   "statut": "Actif",
+   "techniqueSeul": ""
+  },
+  {
+   "nom": "Jordan Greenway",
+   "surnom": "Jordan",
+   "genre": "Homme",
+   "element": "Bois",
+   "poste": "Milieu",
+   "pays": "Japon",
+   "technique": "Tir Astral",
+   "equipes": [
+    "Gémeaux",
+    "Inazuma Japon"
+   ],
+   "apparence": [
+    "Cheveux verts",
+    "Queue de cheval"
+   ],
+   "numero": 10,
+   "saison": "Invasion Extraterrestre",
+   "statut": "Actif",
+   "techniqueSeul": "Tir Astral"
+  },
+  {
+   "nom": "Joseph King",
+   "surnom": "King",
+   "genre": "Homme",
+   "element": "Feu",
+   "poste": "Gardien",
+   "pays": "Japon",
+   "technique": "Bouclier d'Énergie",
+   "equipes": [
+    "Néo Japon",
+    "Royal Academy"
+   ],
+   "apparence": [
+    "Cheveux bruns",
+    "Cicatrice"
+   ],
+   "numero": 1,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": "Bouclier d'Énergie"
+  },
+  {
+   "nom": "Josh Nathaniel",
+   "surnom": "",
+   "genre": "Homme",
+   "element": "Bois",
+   "poste": "Milieu",
+   "pays": "Japon",
+   "technique": "Zigzag Électrique",
+   "equipes": [
+    "Onze d'Inazuma"
+   ],
+   "apparence": [
+    "Cheveux noirs",
+    "Barbe"
+   ],
+   "numero": 6,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": "Zigzag Électrique"
+  },
+  {
+   "nom": "Josh Spear",
+   "surnom": "Réseau",
+   "genre": "Homme",
+   "element": "Bois",
+   "poste": "Attaquant",
+   "pays": "Japon",
+   "technique": "Confusion",
+   "equipes": [
+    "Otaku"
+   ],
+   "apparence": [
+    "Cheveux blancs",
+    "Queue de cheval"
+   ],
+   "numero": 6,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": ""
+  },
+  {
+   "nom": "Jude Sharp",
+   "surnom": "",
+   "genre": "Homme",
+   "element": "Vent",
+   "poste": "Milieu",
+   "pays": "Japon",
+   "technique": "Manchot Empereur N°2",
+   "equipes": [
+    "Inazuma Japon",
+    "Orphée",
+    "Raimon",
+    "Royal Academy"
+   ],
+   "apparence": [
+    "Cheveux bruns",
+    "Lunettes",
+    "Queue de cheval",
+    "Cape"
+   ],
+   "numero": 10,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": "Manchot Empereur N°2"
+  },
+  {
+   "nom": "Ken Furan",
+   "surnom": "Franky",
+   "genre": "Homme",
+   "element": "Terre",
+   "poste": "Défenseur",
+   "pays": "Japon",
+   "technique": "Poing Ardent",
+   "equipes": [
+    "Occulte"
+   ],
+   "apparence": [
+    "Cheveux noirs"
+   ],
+   "numero": 4,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": "Poing Ardent"
+  },
+  {
+   "nom": "Kendall Sefton",
+   "surnom": "Sefton",
+   "genre": "Homme",
+   "element": "Vent",
+   "poste": "Défenseur",
+   "pays": "Japon",
+   "technique": "Scie Circulaire",
+   "equipes": [
+    "Umbrella"
+   ],
+   "apparence": [
+    "Cheveux bleus"
+   ],
+   "numero": 2,
+   "saison": "Invasion Extraterrestre",
+   "statut": "Actif",
+   "techniqueSeul": ""
+  },
+  {
+   "nom": "Kerry Bootgaiter",
+   "surnom": "",
+   "genre": "Femme",
+   "element": "Vent",
+   "poste": "Milieu",
+   "pays": "Japon",
+   "technique": "Tourbillon",
+   "equipes": [
+    "Alpin"
+   ],
+   "apparence": [
+    "Cheveux bruns",
+    "Chapeau"
+   ],
+   "numero": 6,
+   "saison": "Invasion Extraterrestre",
+   "statut": "Actif",
+   "techniqueSeul": ""
+  },
+  {
+   "nom": "Kevin Dragonfly",
+   "surnom": "Kevin",
+   "genre": "Homme",
+   "element": "Bois",
+   "poste": "Attaquant",
+   "pays": "Japon",
+   "technique": "Choc du Dragon",
+   "equipes": [
+    "Alpin",
+    "Empereurs Noirs",
+    "Inazuma Japon",
+    "Raimon"
+   ],
+   "apparence": [
+    "Lunettes"
+   ],
+   "numero": 11,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": "Choc du Dragon"
+  },
+  {
+   "nom": "Kim Powell",
+   "surnom": "Kiburn",
+   "genre": "Femme",
+   "element": "Feu",
+   "poste": "Défenseur",
+   "pays": "Japon",
+   "technique": "Sprint Éclair",
+   "equipes": [
+    "Genesis"
+   ],
+   "apparence": [
+    "Cheveux violets"
+   ],
+   "numero": 3,
+   "saison": "Invasion Extraterrestre",
+   "statut": "Actif",
+   "techniqueSeul": ""
+  },
+  {
+   "nom": "Lucy Hailstone",
+   "surnom": "Icer",
+   "genre": "Femme",
+   "element": "Vent",
+   "poste": "Milieu",
+   "pays": "Japon",
+   "technique": "Séductrice",
+   "equipes": [
+    "Chaos",
+    "Diamond Dust"
+   ],
+   "apparence": [
+    "Cheveux roses"
+   ],
+   "numero": 5,
+   "saison": "Invasion Extraterrestre",
+   "statut": "Actif",
+   "techniqueSeul": "Séductrice"
+  },
+  {
+   "nom": "Maddie Moonlight",
+   "surnom": "Maddie",
+   "genre": "Femme",
+   "element": "Bois",
+   "poste": "Attaquant",
+   "pays": "Japon",
+   "technique": "Tir Comète",
+   "equipes": [
+    "Inazuma KFT"
+   ],
+   "apparence": [
+    "Cheveux bruns",
+    "Queue de cheval"
+   ],
+   "numero": 11,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": ""
+  },
+  {
+   "nom": "Maddox Rock",
+   "surnom": "",
+   "genre": "Homme",
+   "element": "Bois",
+   "poste": "Milieu",
+   "pays": "Japon",
+   "technique": "Tête Giratoire",
+   "equipes": [
+    "Alpin"
+   ],
+   "apparence": [
+    "Lunettes"
+   ],
+   "numero": 7,
+   "saison": "Invasion Extraterrestre",
+   "statut": "Actif",
+   "techniqueSeul": "Tête Giratoire"
+  },
+  {
+   "nom": "Mark Evans",
+   "surnom": "Mark",
+   "genre": "Homme",
+   "element": "Terre",
+   "poste": "Gardien",
+   "pays": "Japon",
+   "technique": "Main Céleste",
+   "equipes": [
+    "Inazuma Japon",
+    "Orphée",
+    "Raimon",
+    "Royal Academy"
+   ],
+   "apparence": [
+    "Casquette",
+    "Bandeau"
+   ],
+   "numero": 1,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": "Main Céleste"
+  },
+  {
+   "nom": "Mark Hillvalley",
+   "surnom": "Hillvalley",
+   "genre": "Homme",
+   "element": "Terre",
+   "poste": "Défenseur",
+   "pays": "Japon",
+   "technique": "Muraille Infinie",
+   "equipes": [
+    "Néo Japon",
+    "Terria"
+   ],
+   "apparence": [
+    "Cheveux bruns"
+   ],
+   "numero": 4,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": "Muraille Infinie"
+  },
+  {
+   "nom": "Marvin Murdock",
+   "surnom": "",
+   "genre": "Homme",
+   "element": "Feu",
+   "poste": "Attaquant",
+   "pays": "Japon",
+   "technique": "Tornade Inversée",
+   "equipes": [
+    "Kirkwood"
+   ],
+   "apparence": [
+    "Lunettes"
+   ],
+   "numero": 9,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": ""
+  },
+  {
+   "nom": "Maxwell Carson",
+   "surnom": "Max",
+   "genre": "Homme",
+   "element": "Vent",
+   "poste": "Attaquant",
+   "pays": "Japon",
+   "technique": "Shoot en Croix",
+   "equipes": [
+    "Empereurs Noirs",
+    "Raimon"
+   ],
+   "apparence": [
+    "Chapeau"
+   ],
+   "numero": 9,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": "Shoot en Croix"
+  },
+  {
+   "nom": "Morgan Sanders",
+   "surnom": "Capuche",
+   "genre": "Homme",
+   "element": "Bois",
+   "poste": "Gardien",
+   "pays": "Japon",
+   "technique": "Tornades",
+   "equipes": [
+    "Shuriken"
+   ],
+   "apparence": [
+    "Capuche"
+   ],
+   "numero": 1,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": "Tornades"
+  },
+  {
+   "nom": "Nathan Jones",
+   "surnom": "Masque",
+   "genre": "Homme",
+   "element": "Vent",
+   "poste": "Gardien",
+   "pays": "Japon",
+   "technique": "Distorsion",
+   "equipes": [
+    "Occulte"
+   ],
+   "apparence": [
+    "Masque"
+   ],
+   "numero": 1,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": "Distorsion"
+  },
+  {
+   "nom": "Neil Turner",
+   "surnom": "",
+   "genre": "Homme",
+   "element": "Feu",
+   "poste": "Attaquant",
+   "pays": "Japon",
+   "technique": "Tornade de Feu",
+   "equipes": [
+    "Cybertech",
+    "Néo Japon"
+   ],
+   "apparence": [
+    "Cheveux roses"
+   ],
+   "numero": 11,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": ""
+  },
+  {
+   "nom": "Nelson Rockwell",
+   "surnom": "Nero",
+   "genre": "Homme",
+   "element": "Vent",
+   "poste": "Gardien",
+   "pays": "Japon",
+   "technique": "Filet Stellaire",
+   "equipes": [
+    "Genesis"
+   ],
+   "apparence": [
+    "Cheveux verts"
+   ],
+   "numero": 1,
+   "saison": "Invasion Extraterrestre",
+   "statut": "Actif",
+   "techniqueSeul": "Filet Stellaire"
+  },
+  {
+   "nom": "Newton Flust",
+   "surnom": "Sniper",
+   "genre": "Homme",
+   "element": "Terre",
+   "poste": "Défenseur",
+   "pays": "Japon",
+   "technique": "Balle de Terre",
+   "equipes": [
+    "Shuriken"
+   ],
+   "apparence": [
+    "Cheveux bruns",
+    "Masque"
+   ],
+   "numero": 2,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": "Balle de Terre"
+  },
+  {
+   "nom": "Nigel August",
+   "surnom": "Neppten",
+   "genre": "Homme",
+   "element": "Bois",
+   "poste": "Attaquant",
+   "pays": "Japon",
+   "technique": "Rayon Ganymède",
+   "equipes": [
+    "Chaos",
+    "Prominence"
+   ],
+   "apparence": [
+    "Cheveux verts",
+    "Bandeau"
+   ],
+   "numero": 11,
+   "saison": "Invasion Extraterrestre",
+   "statut": "Actif",
+   "techniqueSeul": "Rayon Ganymède"
+  },
+  {
+   "nom": "Norman Porter",
+   "surnom": "Porter",
+   "genre": "Homme",
+   "element": "Terre",
+   "poste": "Défenseur",
+   "pays": "Japon",
+   "technique": "Tacle de la Mort",
+   "equipes": [
+    "Umbrella"
+   ],
+   "apparence": [],
+   "numero": 4,
+   "saison": "Invasion Extraterrestre",
+   "statut": "Actif",
+   "techniqueSeul": ""
+  },
+  {
+   "nom": "Paul Siddon",
+   "surnom": "Poséidon",
+   "genre": "Homme",
+   "element": "Terre",
+   "poste": "Gardien",
+   "pays": "Japon",
+   "technique": "Muraille Tsunami",
+   "equipes": [
+    "Zeus"
+   ],
+   "apparence": [
+    "Cheveux bleus"
+   ],
+   "numero": 1,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": "Muraille Tsunami"
+  },
+  {
+   "nom": "Quentin Rackner",
+   "surnom": "",
+   "genre": "Homme",
+   "element": "Bois",
+   "poste": "Attaquant",
+   "pays": "Japon",
+   "technique": "Tir Glacial",
+   "equipes": [
+    "Alpin"
+   ],
+   "apparence": [
+    "Cheveux bleus"
+   ],
+   "numero": 11,
+   "saison": "Invasion Extraterrestre",
+   "statut": "Actif",
+   "techniqueSeul": "Tir Glacial"
+  },
+  {
+   "nom": "Quincy Horace",
+   "surnom": "Hippocampe",
+   "genre": "Homme",
+   "element": "Bois",
+   "poste": "Gardien",
+   "pays": "Australie",
+   "technique": "Grande Barrière de Corail",
+   "equipes": [
+    "Big Waves"
+   ],
+   "apparence": [
+    "Cheveux blonds",
+    "Visière"
+   ],
+   "numero": 12,
+   "saison": "En route vers le Mondial",
+   "statut": "Actif",
+   "techniqueSeul": "Grande Barrière de Corail"
+  },
+  {
+   "nom": "Ray Mannings",
+   "surnom": "Macchabée",
+   "genre": "Homme",
+   "element": "Vent",
+   "poste": "Milieu",
+   "pays": "Japon",
+   "technique": "Spectre Vengeur",
+   "equipes": [
+    "Occulte"
+   ],
+   "apparence": [
+    "Chapeau"
+   ],
+   "numero": 6,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": "Spectre Vengeur"
+  },
+  {
+   "nom": "Robert Skipolson",
+   "surnom": "",
+   "genre": "Homme",
+   "element": "Bois",
+   "poste": "Milieu",
+   "pays": "Japon",
+   "technique": "Tir Comète",
+   "equipes": [
+    "Alpin"
+   ],
+   "apparence": [
+    "Cheveux bleus"
+   ],
+   "numero": 8,
+   "saison": "Invasion Extraterrestre",
+   "statut": "Actif",
+   "techniqueSeul": ""
+  },
+  {
+   "nom": "Sam Samurai",
+   "surnom": "Samouraï",
+   "genre": "Homme",
+   "element": "Bois",
+   "poste": "Attaquant",
+   "pays": "Japon",
+   "technique": "Tir Puissance 3",
+   "equipes": [
+    "Shuriken"
+   ],
+   "apparence": [
+    "Queue de cheval",
+    "Masque"
+   ],
+   "numero": 9,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": "Tir Puissance 3"
+  },
+  {
+   "nom": "Scott Banyan",
+   "surnom": "Scotty (Jeune)",
+   "genre": "Homme",
+   "element": "Bois",
+   "poste": "Défenseur",
+   "pays": "Japon",
+   "technique": "Tourbillon Vivant",
+   "equipes": [
+    "Inazuma Japon",
+    "Raimon"
+   ],
+   "apparence": [
+    "Cheveux bleus"
+   ],
+   "numero": 6,
+   "saison": "Invasion Extraterrestre",
+   "statut": "Actif",
+   "techniqueSeul": "Tourbillon Vivant"
+  },
+  {
+   "nom": "Sean Snowfield",
+   "surnom": "",
+   "genre": "Homme",
+   "element": "Terre",
+   "poste": "Défenseur",
+   "pays": "Japon",
+   "technique": "Contournement",
+   "equipes": [
+    "Alpin"
+   ],
+   "apparence": [
+    "Capuche"
+   ],
+   "numero": 5,
+   "saison": "Invasion Extraterrestre",
+   "statut": "Actif",
+   "techniqueSeul": "Contournement"
+  },
+  {
+   "nom": "Shawn Froste",
+   "surnom": "Shawn",
+   "genre": "Homme",
+   "element": "Vent",
+   "poste": "Défenseur",
+   "pays": "Japon",
+   "technique": "Patinoire",
+   "equipes": [
+    "Alpin",
+    "Inazuma Japon",
+    "Raimon"
+   ],
+   "apparence": [
+    "Cheveux gris"
+   ],
+   "numero": 9,
+   "saison": "Invasion Extraterrestre",
+   "statut": "Actif",
+   "techniqueSeul": "Patinoire"
+  },
+  {
+   "nom": "Steve Eagle",
+   "surnom": "Aigle",
+   "genre": "Homme",
+   "element": "Vent",
+   "poste": "Milieu",
+   "pays": "Japon",
+   "technique": "Attaque du Condor",
+   "equipes": [
+    "Wild"
+   ],
+   "apparence": [
+    "Cheveux verts",
+    "Lunettes",
+    "Capuche"
+   ],
+   "numero": 7,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": "Attaque du Condor"
+  },
+  {
+   "nom": "Taylor Higgins",
+   "surnom": "",
+   "genre": "Homme",
+   "element": "Vent",
+   "poste": "Milieu",
+   "pays": "Japon",
+   "technique": "Tir Puissance 2",
+   "equipes": [
+    "Inazuma KFT"
+   ],
+   "apparence": [
+    "Cheveux noirs",
+    "Casquette"
+   ],
+   "numero": 7,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": "Tir Puissance 2"
+  },
+  {
+   "nom": "Terry Stronger",
+   "surnom": "",
+   "genre": "Homme",
+   "element": "Feu",
+   "poste": "Défenseur",
+   "pays": "Japon",
+   "technique": "Tir Psychique",
+   "equipes": [
+    "Cybertech"
+   ],
+   "apparence": [
+    "Cheveux bruns"
+   ],
+   "numero": 3,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": ""
+  },
+  {
+   "nom": "Thomas Feldt",
+   "surnom": "",
+   "genre": "Homme",
+   "element": "Bois",
+   "poste": "Gardien",
+   "pays": "Japon",
+   "technique": "Protecto-Bulle",
+   "equipes": [
+    "Cybertech",
+    "Empereurs Noirs",
+    "Raimon"
+   ],
+   "apparence": [
+    "Cheveux violets"
+   ],
+   "numero": 1,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": "Protecto-Bulle"
+  },
+  {
+   "nom": "Tim Saunders",
+   "surnom": "Timmy",
+   "genre": "Homme",
+   "element": "Bois",
+   "poste": "Milieu",
+   "pays": "Japon",
+   "technique": "Tête Kung-Fu",
+   "equipes": [
+    "Empereurs Noirs",
+    "Premier Raimon",
+    "Raimon"
+   ],
+   "apparence": [
+    "Cheveux bruns",
+    "Queue de cheval"
+   ],
+   "numero": 7,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": "Tête Kung-Fu"
+  },
+  {
+   "nom": "Toby Damian",
+   "surnom": "",
+   "genre": "Homme",
+   "element": "Vent",
+   "poste": "Milieu",
+   "pays": "Japon",
+   "technique": "Tornade Inversée",
+   "equipes": [
+    "Kirkwood"
+   ],
+   "apparence": [],
+   "numero": 6,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": ""
+  },
+  {
+   "nom": "Tod Ironside",
+   "surnom": "",
+   "genre": "Homme",
+   "element": "Feu",
+   "poste": "Défenseur",
+   "pays": "Japon",
+   "technique": "Triple Tir",
+   "equipes": [
+    "Empereurs Noirs",
+    "Inazuma Japon",
+    "Raimon"
+   ],
+   "apparence": [
+    "Cheveux bruns",
+    "Cicatrice"
+   ],
+   "numero": 5,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": "Triple Tir"
+  },
+  {
+   "nom": "Victoria Vanguard",
+   "surnom": "Tori",
+   "genre": "Femme",
+   "element": "Vent",
+   "poste": "Milieu",
+   "pays": "Japon",
+   "technique": "La Tour",
+   "equipes": [
+    "Raimon"
+   ],
+   "apparence": [
+    "Cheveux bleus"
+   ],
+   "numero": 10,
+   "saison": "Invasion Extraterrestre",
+   "statut": "Actif",
+   "techniqueSeul": "La Tour"
+  },
+  {
+   "nom": "Walter Valiant",
+   "surnom": "Héros",
+   "genre": "Homme",
+   "element": "Feu",
+   "poste": "Milieu",
+   "pays": "Japon",
+   "technique": "Balle Factice",
+   "equipes": [
+    "Otaku"
+   ],
+   "apparence": [
+    "Cheveux bruns"
+   ],
+   "numero": 4,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": "Balle Factice"
+  },
+  {
+   "nom": "William Glass",
+   "surnom": "Willy",
+   "genre": "Homme",
+   "element": "Bois",
+   "poste": "Attaquant",
+   "pays": "Japon",
+   "technique": "Coup de Willy",
+   "equipes": [
+    "Inazuma Japon",
+    "Raimon"
+   ],
+   "apparence": [
+    "Lunettes"
+   ],
+   "numero": 10,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": "Coup de Willy"
+  },
+  {
+   "nom": "Wilson Fishman",
+   "surnom": "Poisson",
+   "genre": "Homme",
+   "element": "Bois",
+   "poste": "Défenseur",
+   "pays": "Japon",
+   "technique": "Vol Rapide",
+   "equipes": [
+    "Wild"
+   ],
+   "apparence": [
+    "Cheveux bleus"
+   ],
+   "numero": 3,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": ""
+  },
+  {
+   "nom": "Xavier Foster",
+   "surnom": "Xavier",
+   "genre": "Homme",
+   "element": "Feu",
+   "poste": "Attaquant",
+   "pays": "Japon",
+   "technique": "Météore Géant",
+   "equipes": [
+    "Genesis",
+    "Inazuma Japon",
+    "Raimon"
+   ],
+   "apparence": [
+    "Cheveux rouges",
+    "Lunettes",
+    "Capuche"
+   ],
+   "numero": 11,
+   "saison": "Invasion Extraterrestre",
+   "statut": "Actif",
+   "techniqueSeul": ""
+  },
+  {
+   "nom": "Zachary Moore",
+   "surnom": "",
+   "genre": "Homme",
+   "element": "Bois",
+   "poste": "Milieu",
+   "pays": "Japon",
+   "technique": "Tir du Faucon",
+   "equipes": [
+    "Kirkwood"
+   ],
+   "apparence": [
+    "Cheveux noirs"
+   ],
+   "numero": 8,
+   "saison": "Football Frontier",
+   "statut": "Actif",
+   "techniqueSeul": ""
+  },
+  {
+   "nom": "Zack Cummings",
+   "surnom": "Zohen",
+   "genre": "Homme",
+   "element": "Terre",
+   "poste": "Défenseur",
+   "pays": "Japon",
+   "technique": "Séisme",
+   "equipes": [
+    "Genesis",
+    "Néo Japon"
+   ],
+   "apparence": [
+    "Cheveux roux",
+    "Queue de cheval",
+    "Masque"
+   ],
+   "numero": 4,
+   "saison": "Invasion Extraterrestre",
+   "statut": "Actif",
+   "techniqueSeul": "Séisme"
+  }
+ ]
+}

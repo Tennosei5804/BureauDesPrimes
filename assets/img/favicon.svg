@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img"
+     aria-label="Bureau des Primes">
+  <title>Bureau des Primes</title>
+  <!-- La mouette du sceau de la Marine, seule et agrandie : a 16 px les
+       deux anneaux de l'en-tete se bouchent. outils/generer-visuels.py
+       reprend exactement cette geometrie pour favicon.ico ; les icones
+       PWA, elles, gardent le sceau complet. -->
+  <rect width="100" height="100" rx="22" fill="#12202A"/>
+  <g fill="none" stroke="#E4614C" stroke-linecap="round">
+    <path d="M15.5 49.5 Q32.75 28.5 50 45.75 Q67.25 28.5 84.5 49.5" stroke-width="11"/>
+    <path d="M26 63.75 H74" stroke-width="8"/>
+  </g>
+</svg>

@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+
+<title>Bureau des Primes — jeux de déduction quotidiens</title>
+<meta name="description" content="Six registres, un personnage recherché chaque jour : One Piece, Naruto, Bleach, Pokémon, Inazuma Eleven et Minecraft. Recoupez les fiches versées jusqu'à l'identifier. En français, sans inscription.">
+
+<!-- ATTENTION : bureau-des-primes.example est un domaine de démonstration.
+     Remplacez-le partout avant la mise en ligne (voir README.md). -->
+<link rel="canonical" href="https://bureau-des-primes.example/">
+<meta name="theme-color" content="#DFD9CA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0D141A" media="(prefers-color-scheme: dark)">
+
+<!-- Le choix de theme est relu ici, avant le premier rendu : pose plus
+     tard, la page clignoterait dans l'autre camp avant de basculer.
+     Le module qui gere le reste : assets/js/theme.js -->
+<script>try{var t=localStorage.getItem('bdp.theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Bureau des Primes">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:url" content="https://bureau-des-primes.example/">
+<meta property="og:title" content="Bureau des Primes — jeux de déduction quotidiens">
+<meta property="og:description" content="Six registres, un personnage recherché chaque jour : One Piece, Naruto, Bleach, Pokémon, Inazuma Eleven et Minecraft.">
+<meta property="og:image" content="https://bureau-des-primes.example/assets/img/og.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Bureau des Primes — six registres quotidiens">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Oswald:wght@300;400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+
+<script type="module" src="assets/js/lobby.js"></script>
+<script type="module" src="assets/js/compte.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://bureau-des-primes.example/#site",
+  "name": "Bureau des Primes",
+  "url": "https://bureau-des-primes.example/",
+  "inLanguage": "fr-FR"
+}
+</script>
+<script type="module" src="assets/js/theme.js"></script>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="masthead">
+    <div class="mh-top">Bureau des Primes &middot; Registres quotidiens</div>
+    <div class="mh-main">
+      <h1 class="wordmark">Bureau des <em>Primes</em></h1>
+    </div>
+    <div class="dateline">
+      <span id="dl-date">&mdash;</span>
+      <span class="sep"></span>
+      <span>Avis n&deg; <b id="dk-num">&mdash;</b></span>
+      <span class="theme" id="theme" hidden></span>
+    </div>
+    <p class="tagline">Un personnage est recherché chaque jour, dans chaque registre.
+       Versez des fiches au dossier et recoupez-les jusqu'à l'identifier.</p>
+  </header>
+
+  <noscript class="noscript">Ces jeux se jouent avec JavaScript. Activez-le dans votre
+  navigateur, puis rechargez la page.</noscript>
+
+  <main>
+    <h2 class="lobby-titre">Choisissez un registre</h2>
+    <section class="compte" id="compte" hidden></section>
+
+    <div class="lobby" id="lobby"></div>
+
+    <!-- Un lien par registre vers son lexique. Il ne peut pas vivre dans
+         la carte : la carte est elle-meme un lien, et un lien dans un
+         lien n'est pas du HTML valide. -->
+    <nav class="lex-liens" id="lex-liens" aria-label="Lexiques"></nav>
+
+    <section class="classement" id="classement" hidden></section>
+
+    <details class="howto">
+      <summary>Comment jouer</summary>
+      <div class="howto-grid">
+        <div>
+          <h4>Le principe</h4>
+          <p>Un personnage est tiré chaque jour, le m&ecirc;me pour tout le monde. Chaque
+             fiche vers&eacute;e compare huit attributs avec le recherch&eacute;. Les fl&egrave;ches
+             &#9650; &#9660; indiquent que la vraie valeur est plus haute ou plus basse.</p>
+          <div class="legend">
+            <span><i style="background:var(--ok)"></i> Exact</span>
+            <span><i style="background:var(--warn)"></i> Proche ou partiel</span>
+            <span><i style="background:var(--miss)"></i> Aucun rapport</span>
+          </div>
+        </div>
+        <div>
+          <h4>Les modes &agrave; indice</h4>
+          <p>En dehors du mode Classique, on part d'un seul indice &mdash; un Fruit du
+             D&eacute;mon, une prime, un kekkei genkai, une technique &mdash; et chaque erreur en
+             d&eacute;verrouille un nouveau. Le but est d'en r&eacute;v&eacute;ler le moins possible.</p>
+        </div>
+        <div>
+          <h4>Rythme</h4>
+          <p>Un personnage par mode et par jour, renouvel&eacute; &agrave; minuit, heure de Paris.
+             Chaque registre garde sa propre s&eacute;rie. Cochez <em>Entra&icirc;nement</em> dans un
+             jeu pour tirer au hasard sans limite, sans toucher &agrave; la s&eacute;rie.</p>
+        </div>
+      </div>
+    </details>
+
+    <p class="foot">
+      <span>Projet de fan, sans lien avec les ayants droit des &oelig;uvres cit&eacute;es.</span>
+      <span>Donn&eacute;es v&eacute;rifi&eacute;es sur les wikis francophones de chaque s&eacute;rie.</span>
+    </p>
+  </main>
+</div>
+<div class="toast" id="toast" hidden></div>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+
+<title>Avis introuvable — Bureau des Primes</title>
+<meta name="description" content="Cette page n'existe pas au Bureau des Primes.">
+<meta name="robots" content="noindex">
+
+<!-- Chemins absolus volontaires : cette page repond sous n'importe
+     quelle URL ratee, ou du relatif ne resoudrait pas. A revoir si
+     le site est deploye dans un sous-dossier (voir README.md). -->
+<meta name="theme-color" content="#DFD9CA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0D141A" media="(prefers-color-scheme: dark)">
+
+<!-- Le choix de theme est relu ici, avant le premier rendu : pose plus
+     tard, la page clignoterait dans l'autre camp avant de basculer.
+     Le module qui gere le reste : assets/js/theme.js -->
+<script>try{var t=localStorage.getItem('bdp.theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Oswald:wght@300;400;500;600;700&display=swap">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script type="module" src="assets/js/theme.js"></script>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="masthead">
+    <div class="mh-top">Marine &middot; Service des avis de recherche</div>
+    <div class="mh-main">
+      <h1 class="wordmark"><a href="/" style="color:inherit; text-decoration:none">Bureau des <em>Primes</em></a></h1>
+      <div class="seal" aria-hidden="true">
+        <svg viewBox="0 0 100 100" role="presentation">
+          <defs>
+            <path id="sealring" d="M50,50 m-35,0 a35,35 0 1,1 70,0 a35,35 0 1,1 -70,0"></path>
+          </defs>
+          <circle cx="50" cy="50" r="47" fill="none" stroke="currentColor" stroke-width="2.4"></circle>
+          <circle cx="50" cy="50" r="42.5" fill="none" stroke="currentColor" stroke-width="1"></circle>
+          <text font-family="Oswald, sans-serif" font-size="10.4" letter-spacing="2.3" fill="currentColor">
+            <textPath href="#sealring" startOffset="25%" text-anchor="middle">MARINE &#183; JUSTICE</textPath>
+          </text>
+          <path d="M27 55 q11.5 -14 23 -2.5 q11.5 -11.5 23 2.5" fill="none"
+                stroke="currentColor" stroke-width="4.4" stroke-linecap="round"></path>
+          <path d="M34 64.5 h32" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"></path>
+        </svg>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="avis-vide">
+      <div class="code">404</div>
+      <h2>Aucun avis &agrave; ce num&eacute;ro</h2>
+      <p>La page demand&eacute;e ne figure pas dans les registres. Elle a peut-&ecirc;tre
+         &eacute;t&eacute; class&eacute;e, ou l'adresse comporte une erreur de recopie.</p>
+      <p><a class="bouton" href="/">Retour au bureau</a></p>
+    </section>
+
+    <p class="foot">
+      <span>Projet de fan, sans lien avec Eiichiro Oda, Shueisha ou Toei Animation.</span>
+    </p>
+  </main>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+# Bureau des Primes — tout est public, rien à cacher aux moteurs.
+User-agent: *
+Allow: /
+
+# Remplacer le domaine avant la mise en ligne (voir README.md).
+Sitemap: https://bureau-des-primes.example/sitemap.xml

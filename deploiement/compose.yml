@@ -1,0 +1,130 @@
+# Bureau des Primes — déploiement Docker.
+#
+# Trois conteneurs : Caddy sert le site et gère le certificat tout seul,
+# PHP-FPM exécute l'API, MariaDB garde les comptes et les parties.
+#
+# Le dépôt entier est monté en LECTURE SEULE dans les deux premiers : le
+# site n'écrit jamais de fichier, tout ce qu'il garde va en base. Une
+# mise à jour se fait donc en remplaçant les fichiers sur l'hôte, sans
+# reconstruire d'image.
+#
+#   cp .env.exemple .env      puis remplir
+#   docker compose up -d
+#   docker compose exec php php outils/migrer.php
+#   docker compose exec php php outils/verifier-discord.php
+
+services:
+
+  # ------------------------------------------------------------------
+  # PokéPension — l'API Node du second projet.
+  #
+  # Elle partage la MariaDB d'à côté, dans sa propre base et avec son
+  # propre utilisateur : une seconde instance coûterait 124 Mo pour
+  # ranger deux tables, et doublerait la sauvegarde à tenir.
+  #
+  # Le code vit hors du dépôt, dans /opt/pokepension : les deux projets
+  # restent séparés, seule la pile est commune. D'où le chemin absolu.
+  # ------------------------------------------------------------------
+  pokepension-api:
+    image: node:22-alpine
+    restart: unless-stopped
+    working_dir: /api
+    command: node src/serveur.js
+    volumes:
+      # Lecture seule : le service n'écrit pas son propre code. Les
+      # sauvegardes qu'il produit vont dans un volume à part.
+      - ${PA_CHEMIN:-/opt/pokepension}/api:/api:ro
+      - pa_sauvegardes:/api/sauvegardes
+    env_file:
+      - ${PA_CHEMIN:-/opt/pokepension}/api/.env
+    depends_on:
+      db:
+        condition: service_healthy
+
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    # 80 sert seul tant qu'on tourne sur une IP ; avec un domaine, c'est
+    # aussi par lui que Let's Encrypt valide avant de livrer le
+    # certificat, et Caddy y redirige ensuite vers 443.
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"     # HTTP/3
+      # PokéPension, le temps de la bêta. Ces deux lignes disparaissent
+      # le jour où un domaine permet de router par nom d'hôte.
+      - "8130:8130"
+      - "8787:8787"
+    environment:
+      ADRESSE: ${ADRESSE:?renseigner ADRESSE dans .env}
+      # PokéPension : un port chacun tant qu'il n'y a pas de domaine.
+      # Avec un domaine, ces deux lignes deviennent des noms et Caddy
+      # obtient les certificats seul.
+      PA_ADRESSE_SITE: ${PA_ADRESSE_SITE:-:8130}
+      PA_ADRESSE_API: ${PA_ADRESSE_API:-:8787}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - ../:/site:ro
+      # Le site de PokéPension, servi sur un autre port par le même Caddy.
+      - ${PA_CHEMIN:-/opt/pokepension}/site/public:/pokepension:ro
+      - caddy_data:/data          # les certificats vivent ici : à garder
+      - caddy_config:/config
+    depends_on:
+      - php
+      - pokepension-api
+
+  php:
+    build: ./php
+    restart: unless-stopped
+    working_dir: /site
+    # Le même chemin que dans Caddy : php_fastcgi transmet le chemin du
+    # script tel quel, les deux conteneurs doivent voir le site au même
+    # endroit, sinon PHP cherche un fichier qui n'existe pas chez lui.
+    volumes:
+      - ../:/site:ro
+      # Les sessions survivent aux redemarrages : sans ce volume, chaque
+      # mise a jour deconnecterait tous les joueurs de Discord.
+      - php_sessions:/sessions
+    environment:
+      BDP_BD_HOTE: db
+      BDP_BD_PORT: "3306"
+      BDP_BD_BASE: ${BD_BASE}
+      BDP_BD_USER: ${BD_UTILISATEUR}
+      BDP_BD_PASS: ${BD_MOTDEPASSE}
+      BDP_DISCORD_ID: ${DISCORD_ID}
+      BDP_DISCORD_SECRET: ${DISCORD_SECRET}
+      BDP_DISCORD_REDIRECT: ${URL_PUBLIQUE}/api/retour.php
+      BDP_ACCUEIL: ${URL_PUBLIQUE}/
+      BDP_DEBOGAGE: ""
+      BDP_BETA: ${BETA:-}
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: mariadb:11
+    restart: unless-stopped
+    command: >
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_unicode_ci
+    environment:
+      MARIADB_DATABASE: ${BD_BASE}
+      MARIADB_USER: ${BD_UTILISATEUR}
+      MARIADB_PASSWORD: ${BD_MOTDEPASSE}
+      MARIADB_ROOT_PASSWORD: ${BD_ROOT}
+    volumes:
+      - db_data:/var/lib/mysql
+    # Sans attendre que la base réponde, la première requête de PHP part
+    # trop tôt et le conteneur redémarre en boucle au premier lancement.
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+
+volumes:
+  pa_sauvegardes:  # ce que l'API de PokéPension écrit
+  caddy_data:      # les certificats Let's Encrypt vivent ici
+  caddy_config:
+  php_sessions:
+  db_data:

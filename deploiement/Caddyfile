@@ -1,0 +1,149 @@
+# Bureau des Primes — Caddy.
+#
+# Caddy sert les fichiers, passe le PHP au conteneur php-fpm, et obtient
+# son certificat Let's Encrypt tout seul au premier démarrage. Rien à
+# renouveler, rien à surveiller.
+
+# L'adresse decide de tout : « :80 » sert en clair sans rien demander a
+# Let's Encrypt — c'est le mode a utiliser tant qu'on n'a qu'une IP, car
+# aucune autorite ne certifie une adresse IP. Un nom de domaine a la
+# place, et Caddy bascule seul en HTTPS.
+{$ADRESSE} {
+	root * /site
+	encode zstd gzip
+
+	# ------------------------------------------------------------------
+	# Ce qui ne doit JAMAIS sortir.
+	#
+	# Le projet protège ces chemins avec trois fichiers .htaccess, qu'un
+	# hébergement Apache lit et que Caddy ignore. Sans les lignes qui
+	# suivent, /api/config.php servirait le mot de passe de la base et le
+	# secret Discord en clair le jour où PHP tomberait en panne — c'est
+	# exactement le cas que le .htaccess d'origine décrit.
+	#
+	# « /deploiement/* » a été ajouté après coup, et c'était une vraie
+	# faille : ce dossier n'existait pas quand la liste a été écrite, et
+	# son .env — mots de passe de la base compris — répondait 200. Toute
+	# la racine du dépôt est servie : ce qui n'est pas refusé est public.
+	# ------------------------------------------------------------------
+	@interdit path /outils/* /deploiement/* /README.md /api/_*.php /api/config.php /api/config.exemple.php /api/schema.sql *.cmd *.py *.sql *.yml *.md *.htaccess .env* /.git*
+
+	header {
+		X-Content-Type-Options nosniff
+		Referrer-Policy strict-origin-when-cross-origin
+		# Le jeu ne s'affiche dans aucune iframe.
+		X-Frame-Options SAMEORIGIN
+		-Server
+	}
+
+	# Les portraits ne bougent jamais : un an, et le navigateur ne
+	# redemande rien.
+	@portraits path /assets/img/*
+	header @portraits Cache-Control "public, max-age=31536000, immutable"
+
+	# Le code et les registres, eux, changent à chaque mise en ligne — et
+	# leurs noms de fichiers ne portent pas d'empreinte. Avec une durée
+	# fixe, un déploiement restait invisible pendant tout ce temps pour
+	# qui avait déjà visité le site : constaté en direct avec une heure
+	# de cache. « no-cache » ne veut pas dire « ne garde rien » mais
+	# « redemande avant de servir » : Caddy répond 304 quand le fichier
+	# n'a pas bougé, ce qui ne coûte presque rien et rend les mises en
+	# ligne immédiates.
+	@vivant path *.css *.js /assets/data/*
+	header @vivant Cache-Control "no-cache"
+
+	@manifeste path *.webmanifest
+	header @manifeste Content-Type application/manifest+json
+
+	# « route » garde l'ordre écrit ici : sans lui Caddy applique son
+	# propre ordre de directives, et le refus passerait après PHP.
+	route {
+		respond @interdit 404
+		php_fastcgi php:9000
+		file_server
+	}
+
+	# La page 404 du site, comme le faisait ErrorDocument.
+	handle_errors {
+		@absent expression {err.status_code} == 404
+		rewrite @absent /404.html
+		file_server
+	}
+
+	log {
+		output file /data/acces.log {
+			roll_size 10MiB
+			roll_keep 5
+		}
+	}
+}
+
+
+# ======================================================================
+# PokéPension — le second projet servi par le même Caddy.
+#
+# Deux adresses : le site d'un côté, l'API Node de l'autre. En bêta ce
+# sont deux ports sur la même IP ; avec un domaine, ce seront deux
+# sous-domaines et Caddy obtiendra les deux certificats seul.
+#
+# Les deux origines diffèrent, donc le navigateur exige une entente
+# CORS. Elle n'est PAS posée ici : c'est l'API qui la donne, à partir de
+# SITE_ORIGINES, et elle nomme l'origine au lieu d'ouvrir à tous.
+# ======================================================================
+
+{$PA_ADRESSE_SITE} {
+	root * /pokepension
+	encode zstd gzip
+
+	header {
+		X-Content-Type-Options nosniff
+		Referrer-Policy strict-origin-when-cross-origin
+		X-Frame-Options SAMEORIGIN
+		-Server
+	}
+
+	# Les sprites, logos, polices et icônes ne changent jamais de nom.
+	@fige path /Sprites/* /logos/* /polices/* /icones/* /types/*
+	header @fige Cache-Control "public, max-age=31536000, immutable"
+
+	# Le code et le service worker, eux, changent à chaque assemblage et
+	# gardent leur nom : « no-cache » fait redemander avant de servir,
+	# sinon une mise à jour resterait invisible pour qui a déjà visité.
+	@vivant path *.css *.js /sw.js *.webmanifest / /index.html /dex /dex.html
+	header @vivant Cache-Control "no-cache"
+
+	@manifeste path *.webmanifest
+	header @manifeste Content-Type application/manifest+json
+
+	# LE SITE A DEUX PAGES : l'accueil sur la racine, le Pokedex sur /dex.
+	# try_files rend dex.html derriere l'adresse /dex — un « .html » dans la
+	# barre d'un lien qu'on met en favori vieillit mal, et le serveur local
+	# (site/outils/servir.py) fait deja la meme reecriture pour que le rendu
+	# soit le meme des deux cotes.
+	try_files {path} {path}.html
+
+	file_server
+
+	log {
+		output file /data/pokepension-acces.log {
+			roll_size 10MiB
+			roll_keep 5
+		}
+	}
+}
+
+{$PA_ADRESSE_API} {
+	# Le service Node n'est pas exposé lui-même : Caddy est le seul à
+	# ouvrir un port sur la machine, et il passe la requête à l'intérieur
+	# du réseau Docker.
+	reverse_proxy pokepension-api:8787
+
+	header -Server
+
+	log {
+		output file /data/pokepension-api.log {
+			roll_size 10MiB
+			roll_keep 5
+		}
+	}
+}

@@ -1,0 +1,11 @@
+# Secrets : mot de passe de la base et secret Discord.
+/api/config.php
+/deploiement/.env
+
+# Pile de developpement portable (PHP + MariaDB), hors du depot.
+/outils/env-local/
+
+# Rebuts systeme
+Thumbs.db
+desktop.ini
+.DS_Store
