@@ -431,7 +431,7 @@
    "origine": "Grand Line",
    "fruit": "Zoan",
    "fruitDetail": "Zoan ancestral",
-   "fruitNom": "Kumo Kumo no Mi, Model: Rosamygale Grauvogeli",
+   "fruitNom": "Kumo Kumo no Mi : Modèle Rosamygale Grauvogeli",
    "fruitNomEn": "Spider-Spider Fruit, Model: Rosamygale grauvogeli",
    "haki": [
     "Armement",
@@ -631,7 +631,7 @@
    "origine": "South Blue",
    "fruit": "Zoan",
    "fruitDetail": "Zoan mythique",
-   "fruitNom": "Inu Inu no Mi, Model: Kyubi no Kitsune",
+   "fruitNom": "Inu Inu no Mi : Modèle Kyubi no Kitsune",
    "fruitNomEn": "Dog-Dog Fruit, Model: Nine-Tailed Fox",
    "haki": [],
    "prime": 100000000,
@@ -1513,7 +1513,7 @@
    "origine": "North Blue",
    "fruit": "Zoan",
    "fruitDetail": "Zoan",
-   "fruitNom": "Inu Inu no Mi, Model: Wolf",
+   "fruitNom": "Inu Inu no Mi : Modèle Loup",
    "fruitNomEn": "Dog-Dog Fruit, Model: Wolf",
    "haki": [],
    "prime": null,
@@ -1532,7 +1532,7 @@
    "origine": "Grand Line",
    "fruit": "Zoan",
    "fruitDetail": "Zoan ancestral",
-   "fruitNom": "Zou Zou no Mi, Model: Mammoth",
+   "fruitNom": "Zou Zou no Mi : Modèle Mammouth",
    "fruitNomEn": "Elephant-Elephant Fruit, Model: Mammoth",
    "haki": [
     "Armement",
@@ -1640,7 +1640,7 @@
    "origine": "Grand Line",
    "fruit": "Zoan",
    "fruitDetail": "Zoan mythique",
-   "fruitNom": "Uo Uo no Mi, Model: Seiryu",
+   "fruitNom": "Uo Uo no Mi : Modèle Dragon Azure",
    "fruitNomEn": "Fish-Fish Fruit, Model: Azure Dragon",
    "haki": [
     "Armement",
@@ -1663,7 +1663,7 @@
    "origine": "East Blue",
    "fruit": "Zoan",
    "fruitDetail": "Zoan",
-   "fruitNom": "Ushi Ushi no Mi, Model: Giraffe",
+   "fruitNom": "Ushi Ushi no Mi : Modèle Girafe",
    "fruitNomEn": "Ox-Ox Fruit, Model: Giraffe",
    "haki": [
     "Armement",
@@ -1812,7 +1812,7 @@
    "origine": "Grand Line",
    "fruit": "Zoan",
    "fruitDetail": "Zoan ancestral",
-   "fruitNom": "Ryu Ryu no Mi, Model: Pteranodon",
+   "fruitNom": "Ryu Ryu no Mi : Modèle Pteranodon",
    "fruitNomEn": "Dragon-Dragon Fruit, Model: Pteranodon",
    "haki": [
     "Armement",
@@ -1894,7 +1894,7 @@
    "origine": "Grand Line",
    "fruit": "Zoan",
    "fruitDetail": "Zoan mythique",
-   "fruitNom": "Uo Uo no Mi, Model: Seiryu (Artificial)",
+   "fruitNom": "Uo Uo no Mi : Modèle Dragon Azure (Artificial)",
    "fruitNomEn": "Fish-Fish Fruit, Model: Azure Dragon",
    "haki": [
     "Observation"
@@ -1995,7 +1995,7 @@
    "origine": "Grand Line",
    "fruit": "Zoan",
    "fruitDetail": "Zoan mythique",
-   "fruitNom": "Hebi Hebi no Mi, Model: Yamata no Orochi",
+   "fruitNom": "Hebi Hebi no Mi : Modèle Yamata no Orochi",
    "fruitNomEn": "Snake-Snake Fruit, Model: Yamata-no-Orochi",
    "haki": [],
    "prime": null,
@@ -2071,7 +2071,7 @@
    "origine": "Grand Line",
    "fruit": "Zoan",
    "fruitDetail": "Zoan mythique",
-   "fruitNom": "Tori Tori no Mi, Model: Phoenix",
+   "fruitNom": "Tori Tori no Mi : Modèle Phénix",
    "fruitNomEn": "Tweet-Tweet Fruit, Model: Phoenix",
    "haki": [
     "Armement",
@@ -2175,7 +2175,7 @@
    "origine": "East Blue",
    "fruit": "Zoan",
    "fruitDetail": "Zoan mythique",
-   "fruitNom": "Hito Hito no Mi, Model: Nika",
+   "fruitNom": "Hito Hito no Mi : Modèle Nika",
    "fruitNomEn": "Human-Human Fruit, Model: Nika",
    "haki": [
     "Armement",
@@ -2371,7 +2371,7 @@
    "origine": "Grand Line",
    "fruit": "Zoan",
    "fruitDetail": "Zoan ancestral",
-   "fruitNom": "Ryu Ryu no Mi, Model: Spinosaurus",
+   "fruitNom": "Ryu Ryu no Mi : Modèle Spinosaurus",
    "fruitNomEn": "Dragon-Dragon Fruit, Model: Spinosaurus",
    "haki": [
     "Armement",
@@ -2499,7 +2499,7 @@
    "origine": "Grand Line",
    "fruit": "Zoan",
    "fruitDetail": "Zoan ancestral",
-   "fruitNom": "Ryu Ryu no Mi, Model: Brachiosaurus",
+   "fruitNom": "Ryu Ryu no Mi : Modèle Brachiosaurus",
    "fruitNomEn": "Dragon-Dragon Fruit, Model: Brachiosaurus",
    "haki": [
     "Armement",
@@ -2563,7 +2563,7 @@
    "origine": "Grand Line",
    "fruit": "Zoan",
    "fruitDetail": "Zoan",
-   "fruitNom": "Neko Neko no Mi, Model: Leopard",
+   "fruitNom": "Neko Neko no Mi : Modèle Léopard",
    "fruitNomEn": "Cat-Cat Fruit, Model: Leopard",
    "haki": [
     "Armement",
@@ -2714,7 +2714,7 @@
    "origine": "Grand Line",
    "fruit": "Zoan",
    "fruitDetail": "Zoan ancestral",
-   "fruitNom": "Ryu Ryu no Mi, Model: Triceratops",
+   "fruitNom": "Ryu Ryu no Mi : Modèle Triceratops",
    "fruitNomEn": "Dragon-Dragon Fruit, Model: Triceratops",
    "haki": [
     "Armement"
@@ -2757,7 +2757,7 @@
    "origine": "South Blue",
    "fruit": "Zoan",
    "fruitDetail": "Zoan mythique",
-   "fruitNom": "Hito Hito no Mi, Model: Daibutsu",
+   "fruitNom": "Hito Hito no Mi : Modèle Daibutsu",
    "fruitNomEn": "Human-Human Fruit, Model: Buddha",
    "haki": [
     "Armement",
@@ -3110,7 +3110,7 @@
    "origine": "Grand Line",
    "fruit": "Zoan",
    "fruitDetail": "Zoan ancestral",
-   "fruitNom": "Ryu Ryu no Mi, Model: Pachycephalosaurus",
+   "fruitNom": "Ryu Ryu no Mi : Modèle Pachycephalosaurus",
    "fruitNomEn": "Dragon-Dragon Fruit, Model: Pachycephalosaurus",
    "haki": [
     "Armement",
@@ -3369,7 +3369,7 @@
    "origine": "North Blue",
    "fruit": "Zoan",
    "fruitDetail": "Zoan ancestral",
-   "fruitNom": "Neko Neko no Mi, Model: Saber Tiger",
+   "fruitNom": "Neko Neko no Mi : Modèle Tigre à Dents de Sabre",
    "fruitNomEn": "Cat-Cat Fruit, Model: Saber-Toothed Tiger",
    "haki": [
     "Armement",
@@ -3391,7 +3391,7 @@
    "origine": "North Blue",
    "fruit": "Zoan",
    "fruitDetail": "Zoan ancestral",
-   "fruitNom": "Ryu Ryu no Mi, Model: Allosaurus",
+   "fruitNom": "Ryu Ryu no Mi : Modèle Allosaurus",
    "fruitNomEn": "Dragon-Dragon Fruit, Model: Allosaurus",
    "haki": [
     "Armement",
@@ -3413,7 +3413,7 @@
    "origine": "Inconnu",
    "fruit": "Zoan",
    "fruitDetail": "Zoan mythique",
-   "fruitNom": "Inu Inu no Mi, Model: Okuchi no Makami",
+   "fruitNom": "Inu Inu no Mi : Modèle Okuchi no Makami",
    "fruitNomEn": "Dog-Dog Fruit, Model: Okuchi-no-Makami",
    "haki": [
     "Armement",
