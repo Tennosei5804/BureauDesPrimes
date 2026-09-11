@@ -120,6 +120,15 @@
 	# barre d'un lien qu'on met en favori vieillit mal, et le serveur local
 	# (site/outils/servir.py) fait deja la meme reecriture pour que le rendu
 	# soit le meme des deux cotes.
+	# UN LIEN DE PARTAGE : « /p/K7M2-QX4P » rend toujours la meme page, et
+	# c'est elle qui lit le code dans l'adresse. Sans cette regle, chaque code
+	# serait un fichier a trouver sur le disque, et il n'y en a aucun.
+	# UN SEUL SEGMENT APRES « /p/ » : « /p/K7M2-QX4P » est un code, mais
+	# « /p/js/donnees.js » est un fichier. Un joker large rendait la page a
+	# la place des scripts, et le navigateur tentait d'executer du HTML.
+	@codePartage path_regexp ^/p/[^/]+$
+	rewrite @codePartage /partage.html
+
 	try_files {path} {path}.html
 
 	file_server
