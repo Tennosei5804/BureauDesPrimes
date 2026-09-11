@@ -131,6 +131,31 @@
 
 	try_files {path} {path}.html
 
+	# ═══ LE TELECHARGEMENT DE L'APPLICATION, SERVI PAR LE SITE ═══════════
+	# Le fichier vient du site lui-meme, pas d'un hebergeur tiers : le lien
+	# ne quitte jamais pokepension.fr, et il ne casse pas le jour ou l'on
+	# change de forge.
+	#
+	# « /telecharger » est l'adresse STABLE : elle ne porte pas de numero de
+	# version, donc elle survit a chaque publication et peut etre partagee
+	# telle quelle. Le fichier derriere, lui, porte toujours le meme nom sur
+	# le disque — remplacer le binaire suffit, il n'y a rien a changer ici.
+	# La version reelle et le poids sont dans derniere.json, que la page
+	# d'accueil lit pour ne jamais annoncer autre chose que ce qu'elle sert.
+	handle /telecharger {
+		redir * /telechargements/PokePension-Windows-x64.exe temporary
+	}
+
+	handle_path /telechargements/* {
+		root * /telechargements
+		# Sans cet en-tete, certains navigateurs ouvrent le binaire au lieu
+		# de l'enregistrer, et l'on se retrouve avec une page d'octets.
+		@binaire path *.exe
+		header @binaire Content-Disposition "attachment"
+		header @binaire Cache-Control "public, max-age=3600"
+		file_server
+	}
+
 	file_server
 
 	log {

@@ -67,6 +67,11 @@ services:
       - ../:/site:ro
       # Le site de PokéPension, servi sur un autre port par le même Caddy.
       - ${PA_CHEMIN:-/opt/pokepension}/site/public:/pokepension:ro
+      # L'INSTALLATEUR DE L'APPLICATION, HORS DU SITE ASSEMBLE. site/public
+      # est refait a neuf a chaque assemblage : un binaire de huit megaoctets
+      # depose dedans disparaitrait au premier deploiement, sans un mot.
+      # Il vit donc a cote, et Caddy le sert depuis /telechargements.
+      - ${PA_CHEMIN:-/opt/pokepension}/telechargements:/telechargements:ro
       - caddy_data:/data          # les certificats vivent ici : à garder
       - caddy_config:/config
     depends_on:
